@@ -4,16 +4,16 @@
 
 
 fruits = ['apple', 'banana', 'cherry', 'watermelon']
-# print(fruits[0])  # Outputs: 'apple'
-# print(fruits[-3])  # Outputs: 'apple'
-# print(fruits[3])  # Outputs: 'watermelon'
+# print(fruits[0])  # 'apple'
+# print(fruits[-3])  # 'apple'
+# print(fruits[3])  # 'watermelon'
 # print(fruits[4])  # IndexError: list index out of range
 # print(fruits[-5]) # IndexError: list index out of range
 #
-# fruits[0] = 'pineapple'  # замена первого элемента в списке
-# print(fruits)  # Outputs: ['pineapple', 'banana', 'cherry', 'watermelon']
+# fruits[0] = 'pineapple'  # замена первого элемента списка
+# print(fruits)  #  ['pineapple', 'banana', 'cherry', 'watermelon']
 
 
 # fruits = ['apple', 'banana', 'cherry', 'watermelon']
 # fruits[0], fruits[3] = fruits[3], fruits[0]  # смена первого и последнего элемента в списке
-# print(fruits)  # Outputs: ['watermelon', 'banana', 'cherry', 'apple']
+# print(fruits)  # ['watermelon', 'banana', 'cherry', 'apple']
