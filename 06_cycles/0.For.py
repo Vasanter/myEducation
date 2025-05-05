@@ -109,3 +109,47 @@
 #
 # average_score = total_score / n  # рассчитываем средний балл
 # print(average_score)
+
+
+"""15.Цикл for"""
+# Цикл for позволяет проводить итерации — реализовывать набор инструкций нужное количество раз.
+num_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+# for num in num_list:
+#     print(str(num) + ' Hala Madrid!')
+# for num in num_list:
+#     if num % 2 == 0:  # вывод четных чисел из списка
+#         print(num)
+#     else:
+#         print('Hey!')
+# list_numbers_sum = 0
+# for number in num_list:  # сумма чисел из списка
+#     list_numbers_sum = list_numbers_sum + number
+#     print(list_numbers_sum)
+# greeting = 'Hello Python!'
+# for letter in greeting:
+#     if letter == 'o':  # поиск совпадений в тексте. Если установить неравенство, то выводимый текст будет без букв "о"
+#         print(letter)
+# for letter in 'Hello Python!':
+#     print('One more letter!')  # текст One more letter будет выводиться столько раз, сколько количество букв в строке
+# tuple_list = [('a', 'b'), ('c', 'd'), ('e', 'f')]
+# for item in tuple_list:
+#     print(item)
+# for letter_1, letter_2 in tuple_list:
+#     print(letter_1, letter_2)
+# dictionary = {'key1': 'value1', 'key2': 'value2', 'key3': 'value3'}
+# for item in dictionary:
+#     print(item)
+# for item in dictionary.items():  # получаем пары ключ/значение
+#     print(item)
+# for item in dictionary.keys():  # получаем ключи
+#     print(item)
+# for item in dictionary.values():  # получаем значения
+#     print(item)
+# for i in range(5):
+#     print(i)
+# for i in range(3, 11, 2):  # диапазон (от 3 до 11) и шаг
+#     print(i)
+# print(range(1, 5))  # range(1, 5)
+# print(list(range(1, 5)))  # [1, 2, 3, 4]
+# print(set(range(1, 5)))  # {1, 2, 3, 4}
+# print(tuple(range(1, 5)))  # (1, 2, 3, 4)
