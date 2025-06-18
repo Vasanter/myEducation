@@ -30,7 +30,7 @@ print(id(myName))
 # print(name, years_old)  # Alice 25
 # print(id(name))  # id объекта в памяти системы
 
-"""ПРИМЕР ИСПОЛЬЗВАНИЯ КЛЮЧЕВОГО СЛОВА В ОБОЗНАЧЕНИИ ПРЕМЕННОЙ"""
+"""ПРИМЕР ОШИБОК ПРИ ИСПОЛЬЗВАНИИ КЛЮЧЕВОГО СЛОВА В ОБОЗНАЧЕНИИ ПРЕМЕННОЙ"""
 # print = 1
 # print(1)  # TypeError: 'int' object is not callable
 
