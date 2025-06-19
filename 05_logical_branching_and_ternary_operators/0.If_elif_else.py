@@ -19,12 +19,14 @@
 
 # x = 10
 # y = 20
+
 # if x > 0:
 #     if y > 0:  # лучше так не писать, а писать в рамках одного условия, вот так => if x > 0 and y > 0:
 #         print("x и y положительные")
 
 
 # x = int(input("Введите число: "))
+
 # if x > 0:
 #     print("Число положительное")
 # elif x < 0:
@@ -34,6 +36,7 @@
 
 
 # name = input()
+
 # if name:
 #     print('Ты ввел =>', name)
 # else:
@@ -42,6 +45,7 @@
 
 # x = 10
 # y = 20
+
 # if x > 0 and y > 0:  # оба условия должны быть выполнены
 #     print("x и y положительные!")
 
@@ -53,6 +57,7 @@
 
 # yesterday_temp = int(input())
 # today_temp = int(input())
+
 # if today_temp > yesterday_temp:
 #     print("Сегодня теплее, чем вчера.")
 # elif today_temp < yesterday_temp:
