@@ -7,16 +7,16 @@
 # случае — False.
 
 my_list = [1, 2, 3, 4, 5]
-print(3 in my_list)  # Вернёт: True
+print(3 in my_list)  # Output: True
 
 my_string = 'Hello, world!'
-print('planet' in my_string)  # Вернёт: False
+print('planet' in my_string)  # Output: False
 
 
 # Оператор not in - обратный in. Проверяет, отсутствует ли элемент в коллекции.
 # Если отсутствует, возвращает True, иначе — False:
 my_list = [1, 2, 3, 4, 5]
-print(6 not in my_list)  # Вернёт: True
+print(6 not in my_list)  # Output: True
 
 my_string = 'Hello, world!'
-print('world' not in my_string)  # Вернёт: False
+print('world' not in my_string)  # Output: False

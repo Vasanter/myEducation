@@ -5,7 +5,7 @@
 # поочередно. Если ни одно из условий не истинно, используют блок else, чтобы выполнить код по умолчанию.
 
 # if True:
-#     print("Hello, world!")  # Hello, world!
+#     print("Hello, world!")  # Output: Hello, world!
 
 
 # if False:

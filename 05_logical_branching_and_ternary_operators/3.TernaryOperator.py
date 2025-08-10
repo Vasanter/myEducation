@@ -14,15 +14,15 @@ else:
     print(b)
 
 res = a if a > b else b  # переменной res присваиваем значение переменной a, если a > b; иначе присваиваем значение b
-print(res)  # 3
+print(res)  # Output: 3
 
 # ... можно добавлять условия:
 res = a + 2 if a > b else b - 4
-print(res)  # 5
+print(res)  # Output: 5
 
 # ... использовать функции:
 res = abs(a) if a < b else abs(b)
-print(res)  # 1
+print(res)  # Output: 1
 
 
 # ПРИМЕР ПРЕОБРАЗОВАНИЯ 2:
@@ -43,16 +43,16 @@ print(res)  # 1
 # a = 12
 # b = 7
 # maximum = a if a > b else b
-# print(maximum)  # 12
+# print(maximum)  # Output: 12
 
 # Проверка чётности числа:
 # a = int(input("Enter a number: "))
 # result = "четное" if a % 2 == 0 else "нечетное"
-# print(result)  # нечетное
+# print(result)  # Output: нечетное
 
 
 # Преобразование строки в верхний регистр по условию:
 # s = 'python'
 # _type = 'upper'
 # res = s.upper() if _type == 'upper' else s
-# print(res)  # PYTHON
+# print(res)  # Output: PYTHON
