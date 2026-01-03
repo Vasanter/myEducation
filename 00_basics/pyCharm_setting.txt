@@ -1,0 +1,13 @@
+# Terminal => ShellPath - смена оболочки ... cmd / PowerShell и пр.
+
+# Изменение политики в PowerShell:
+# По умолчанию, в PowerShell может быть включена политика, которая блокирует выполнение скриптов.
+# Чтобы разрешить выполнение скриптов, вам может потребоваться запустить PowerShell от имени администратора и выполнить
+# следующую команду: Set-ExecutionPolicy Unrestricted
+
+# Другие варианты решения проблемы:
+# https://winitpro.ru/index.php/2020/06/03/powershell-execution-policy-zapusk-scriptov/
+# см. Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+
+
+# PLUGINS: Rainbow Brackets // Atom Material Icons // CodeGlance // Indent Rainbow // JetBrains AI Assistant

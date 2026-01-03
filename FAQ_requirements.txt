@@ -1,0 +1,8 @@
+Установка зависимостей
+
+pip install pigar -- утилита сканирует код на наличие библиотек, которые используются в текущем проекте
+pigar generate -- генерирует файл requirements.txt
+pigar check -f requirements.txt -- показывает какая сейчас локальная версия и текущая доступная в pypi
+
+
+pip install selenium pytest webdriver-manager allure-pytest requests python-dotenv

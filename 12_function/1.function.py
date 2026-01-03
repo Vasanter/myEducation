@@ -4,16 +4,28 @@
 
 
 # ПРИМЕР 1:
+# def some(number):
+#     if number % 2 == 0:
+#         return f'Число {number} - четное!'
+#     else:
+#         return f'Число {number} - не четное!'
+#
+#
+# print(some(int(input("Enter a number: "))))
+
+
+# ПРИМЕР 2:
 # numbers_1 = [1, 2, 3, 4, 5]
 # average_1 = sum(numbers_1) / len(numbers_1)  # делим сумму чисел из списка на кол-во элементов из списка
-# print(average_1)  # Output: 3.0 - среднее значение
+# print("Среднее значение цифр из списка равно: ", average_1)  # Output: 3.0
 #
 # numbers_2 = [6, 7, 8, 9, 10]
 # average_2 = sum(numbers_2) / len(numbers_2)
-# print(average_2)  # Output: 8.0 - среднее значение
-
-
-# Блоки кода одинаковы, отличие имеют только элементы списка. Выше написанный код можно оптимизировать создав функцию:
+# print("Среднее значение цифр из списка равно: ", average_2)  # Output: 8.0
+#
+#
+# # Т.к. блоки кода одинаковы, а отличие имеют только элементы списка, выше написанный код можно оптимизировать создав
+# # функцию:
 # numbers_1 = [1, 2, 3, 4, 5]
 # numbers_2 = [6, 7, 8, 9, 10]
 #
@@ -23,12 +35,13 @@
 #     return average
 #
 #
-# average_1 = find_average(numbers_1)
+# average_1 = find_average(numbers_1)  # вызываем функцию find_average с аргументом numbers_1
 # average_2 = find_average(numbers_2)
+#
 # print(average_1, average_2, sep=' / ')  # Output: 3.0 / 8.0
 
 
-# ПРИМЕР 2. Подсчет гласных букв в строке:
+# ПРИМЕР 3. Подсчет гласных букв в строке:
 # def count_vowels(string):
 #     vowels = 'аяуюоеёэиыАЯУЮОЕЁЭИЫ'  # гласные
 #     count = 0
@@ -43,7 +56,7 @@
 # мысль и содержит подлежащее и сказуемое."))  # Outputs: 55
 
 
-# ПРИМЕР 3. Указываем аргументы функции:
+# ПРИМЕР 4. Указываем аргументы функции:
 # def welcome_message(name, age, location):  # название функции => welcome_message. Аргументы => name, age, location
 #     print(f"Shalom, {name}. You are {age} and from {location}!")
 #
@@ -52,7 +65,7 @@
 # welcome_message('Ted', 30, 'Turkey')  # Output: Shalom, Ted. You are 30 and from Turkey!
 
 
-# ПЛОХОЙ ПРИМЕР! - перепутали данные (день - месяц)
+# ПЛОХОЙ ПРИМЕР! - перепутали параметры (день - месяц)
 # def format_date(day, month):
 #     return f"The date is {day} of {month}."
 #
@@ -78,3 +91,30 @@
 #
 # print(custom_greeting(name="John"))  # Hello, John!
 # print(custom_greeting(name="John", greeting="Good morning"))  # Outputs: Good morning, John!
+
+
+# ПРИМЕР 5. Конвертер валют
+def to_euro(amount):
+    rate = 92.09
+    return amount * rate
+
+
+def to_usd(amount):
+    rate = 78.23
+    return amount * rate
+
+
+print("Конвертер валют\n"
+      "1 - пара: EURO -> RUB\n"
+      "2 - пара: USD -> RUB")
+
+money = float(input("Введите сумму: "))
+choice = int(input("Выберите пару: "))
+
+if choice == 1:
+    print("При пересчете в рубли:", round(to_euro(money), 2))
+elif choice == 2:
+    print("При пересчете в рубли:", round(to_usd(money), 2))
+else:
+    print("Такой пары нет!")
+
