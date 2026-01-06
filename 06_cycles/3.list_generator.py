@@ -1,0 +1,38 @@
+# ПРОСТОЙ ПРИМЕР(шаблон)
+result = [i for i in range(-5, 14)]
+print(result)
+
+
+# ПРИМЕР 1
+data = [11, 0, 3, 0, 5, 7, 0, 4, 1, 22, 0, 8]
+res = [num for num in data if num != 0]
+
+# num - переменная, которая поочередно принимает каждое значение из data
+# for num in data - цикл по всем элементам списка data
+# if num != 0 - условие фильтрации (оставить только элементы, не равные 0)
+
+# Аналогичный код с обычным циклом:
+# data = [11, 0, 3, 0, 5, 7, 0, 0, 4, 22, 0]
+# res = []  # создаем пустой список
+#
+# for num in data:  # перебираем все элементы data
+#     if num != 0:  # проверяем условие
+#         res.append(num)  # добавляем в результат если не ноль
+
+
+# ПРИМЕР 2
+# Фильтрация строк по длине:
+words = ["apple", "cat", "banana", "dog"]
+long_words = [w for w in words if len(w) > 3]  # ["apple", "banana"]
+
+
+# ПРИМЕР 3
+# Удаление всех отрицательных чисел:
+numbers = [1, -2, 3, -4, 5]
+positive = [n for n in numbers if n > 0]  # [1, 3, 5]
+
+
+# ПРИМЕР 4
+# Фильтрация по типу данных:
+mixed = [1, "hello", 2.5, "world", 3]
+integers = [x for x in mixed if isinstance(x, int)]  # [1, 3]

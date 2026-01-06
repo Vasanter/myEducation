@@ -6,6 +6,10 @@
 #     print(i)
 
 
+# for letter in 'Hello Python!':
+#     print('One more letter!')  # текст One more letter будет выводиться столько раз, сколько количество букв в строке
+
+
 # file_names = ["document1.txt", "image1.jpg", "document2.txt", "image2.jpg"]
 # for file_name in file_names:
 #     print(file_name)  # выводим весь список
@@ -139,10 +143,6 @@
 #         print(f'{num} - нечетное!')
 
 
-# for letter in 'Hello Python!':
-#     print('One more letter!')  # текст One more letter будет выводиться столько раз, сколько количество букв в строке
-
-
 # tuple_list = [('a', 'b'), ('c', 'd'), ('e', 'f')]
 # for item in tuple_list:
 #     print(item)
@@ -173,3 +173,22 @@
 # print(list(range(1, 5)))  # [1, 2, 3, 4]
 # print(set(range(1, 5)))  # {1, 2, 3, 4}
 # print(tuple(range(1, 5)))  # (1, 2, 3, 4)
+
+
+# 3. Сортировка Пузырьком.
+# Проходимся по элементам массива и попарно сравниваем. Если левый больше правого - меняем местами.
+# from random import randint
+#
+# N = 10  # количество элементов в списке
+# a = []
+# for i in range(N):
+#     a.append(randint(1, 99))
+# print(a)  # вывод исходного неотсортированного списка
+#
+# # Сама сортировка методом "пузырька"
+# for i in range(N-1):
+#     for j in range(N-1-i):
+#         if a[j] > a[j+1]:
+#             a[j], a[j+1] = a[j+1], a[j]
+#
+# print(a)  # вывод отсортированного списка

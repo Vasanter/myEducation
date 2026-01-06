@@ -1,3 +1,5 @@
+# назедхмемхе якнбюпеи
+
 person = {
     "city": "New York",
     "age": 30,
@@ -10,6 +12,9 @@ add_person_info = {
 }
 person.update(add_person_info)
 print(person)  # Outputs: {'city': 'London', 'age': 30, 'name': 'John', 'job': 'Engineer', 'married': True}
+
+dct_join = {**person, **add_person_info}
+print(dct_join)  # Outputs: {'city': 'London', 'age': 30, 'name': 'John', 'job': 'Engineer', 'married': True}
 
 # *
 person = {
