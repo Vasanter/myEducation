@@ -2,6 +2,53 @@
 # (аргументы), выполнять операции над ними и возвращать результат. Функции позволяют структурировать код, делая его
 # более читаемым и многократно используемым.
 
+# ПРОСТЫЕ ПРИМЕРЫ
+# 1. Объявление функции
+# def greet(name):
+#     """Эта функция приветствует пользователя"""
+#     print(f"Привет, {name}!")
+#
+#
+# # Вызов функции
+# greet("Анна")  # Выведет: Привет, Анна!
+
+
+# 2. Аргументы по умолчанию
+# def power(base, exponent=2):
+#     return base ** exponent
+#
+#
+# power(3)  # 9 (3 во 2 степени)
+# power(3, 3)  # 27 (3 в 3 степени)
+
+
+# 3.  Переменное количество аргументов
+# def sum_all(*args):
+#     return sum(args)
+#
+#
+# sum_all(1, 2, 3)  # 6
+
+
+# 4. Именованные аргументы с ** kwargs
+# def print_info(**kwargs):
+#     for key, value in kwargs.items():
+#         print(f"{key}: {value}")
+#
+#
+# print_info(name="Анна", age=25)
+# Выведет: name: Анна
+#           age: 25
+
+
+# 5. Возврат нескольких значений (кортеж)
+# def min_max(numbers):
+#     return min(numbers), max(numbers)
+#
+#
+# minimum, maximum = min_max([12, 3, 11, 5, 2, 16, 11, 10, 8, 4, 9])
+# print(f"Наименьшее число => {minimum}. \nНаибольшее число => {maximum}.")
+
 
 # ПРИМЕР 1:
 # def some(number):
@@ -94,27 +141,26 @@
 
 
 # ПРИМЕР 5. Конвертер валют
-def to_euro(amount):
-    rate = 92.09
-    return amount * rate
-
-
-def to_usd(amount):
-    rate = 78.23
-    return amount * rate
-
-
-print("Конвертер валют\n"
-      "1 - пара: EURO -> RUB\n"
-      "2 - пара: USD -> RUB")
-
-money = float(input("Введите сумму: "))
-choice = int(input("Выберите пару: "))
-
-if choice == 1:
-    print("При пересчете в рубли:", round(to_euro(money), 2))
-elif choice == 2:
-    print("При пересчете в рубли:", round(to_usd(money), 2))
-else:
-    print("Такой пары нет!")
-
+# def to_euro(amount):
+#     rate = 92.09
+#     return amount * rate
+#
+#
+# def to_usd(amount):
+#     rate = 78.23
+#     return amount * rate
+#
+#
+# print("Конвертер валют\n"
+#       "1 - пара: EURO -> RUB\n"
+#       "2 - пара: USD -> RUB")
+#
+# money = float(input("Введите сумму: "))
+# choice = int(input("Выберите пару: "))
+#
+# if choice == 1:
+#     print("При пересчете в рубли:", round(to_euro(money), 2))
+# elif choice == 2:
+#     print("При пересчете в рубли:", round(to_usd(money), 2))
+# else:
+#     print("Такой пары нет!")
