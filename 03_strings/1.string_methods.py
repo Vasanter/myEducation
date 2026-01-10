@@ -1,6 +1,6 @@
 """МЕТОДЫ И ФУНКЦИИ СТРОК"""
 
-# 1.БАЗОВЫЕ МЕТОДЫ
+"""БАЗОВЫЕ МЕТОДЫ"""
 # str.capitalize() - первая буква заглавная
 text = "hello world"
 print(text.capitalize())  # Hello world
@@ -21,7 +21,7 @@ print(text.lower())  # hello
 text = "Hello World"
 print(text.swapcase())  # hELLO wORLD
 
-# 2. МЕТОДЫ ПРОВЕРКИ
+"""МЕТОДЫ ПРОВЕРКИ"""
 # str.isalpha() - строка содержит только буквы
 print("Hello".isalpha())  # True
 print("Hello123".isalpha())  # False
@@ -94,7 +94,7 @@ print("var_name".isidentifier())  # True
 print("123var".isidentifier())  # False
 print("var-name".isidentifier())  # False
 
-# 3. МЕТОДЫ ПОИСКА И ЗАМЕНЫ
+"""МЕТОДЫ ПОИСКА И ЗАМЕНЫ"""
 # str.find() - ищет первое вхождение подстроки в строке
 text = "Hello World World"
 print(text.find("World"))  # 6
@@ -131,7 +131,7 @@ print(text.replace("World", "Python"))  # Hello Python
 print(text.replace("l", "L", 1))  # HeLlo World (только первое)
 print("aaaa".replace("aa", "b"))  # bb (последовательная замена)
 
-# 4. МЕТОДЫ ФОРМАТИРОВАНИЯ
+"""МЕТОДЫ ФОРМАТИРОВАНИЯ"""
 # str.strip([chars]) - удаление пробелов с обоих сторон
 text = "  Hello World  "
 print(text.strip())  # "Hello World"
@@ -175,7 +175,7 @@ text = "Hello\tWorld"
 print(text.expandtabs())  # "Hello   World" (8 пробелов по умолчанию)
 print(text.expandtabs(4))  # "Hello World" (4 пробела)
 
-# 5. МЕТОДЫ РАЗБИЕНИЯ И СОЕДИНЕНИЯ
+"""МЕТОДЫ РАЗБИЕНИЯ И СОЕДИНЕНИЯ"""
 # str.split([sep[, maxsplit]]) - разделяет строку на список подстрок (слов) на основе заданного разделителя
 text = "apple,banana,cherry"
 print(text.split(","))  # ['apple', 'banana', 'cherry']
@@ -211,7 +211,7 @@ print(", ".join(words))  # "Hello, World, Python"
 print("".join(["a", "b", "c"]))  # "abc"
 print("-".join("123"))  # "1-2-3"
 
-# 6. СОВРЕМЕННЫЕ МЕТОДЫ (Python 3.9+)
+"""СОВРЕМЕННЫЕ МЕТОДЫ (Python 3.9+)"""
 # str.removeprefix(prefix) - удаление префикса
 text = "HelloWorld"
 print(text.removeprefix("Hello"))  # "World"
@@ -222,7 +222,7 @@ text = "file.txt"
 print(text.removesuffix(".txt"))  # "file"
 print(text.removesuffix(".pdf"))  # "file.txt"
 
-# 7. СПЕЦИАЛЬНЫЕ МЕТОДЫ ФОРМАТИРОВАНИЯ
+"""СПЕЦИАЛЬНЫЕ МЕТОДЫ ФОРМАТИРОВАНИЯ"""
 # str.format(*args, **kwargs) - форматирование с помощью метода format
 # Позиционные аргументы
 print("{} {}".format("Hello", "World"))  # Hello World
@@ -256,77 +256,13 @@ trans_table = str.maketrans(trans_dict)
 print("hello world".translate(trans_table))  # hEll w rld
 
 
-# 8. ПРИМЕР КОМПЛЕКСНОГО ИСПОЛЬЗОВАНИЯ
-def process_text(text):
-    """Пример комплексной обработки текста"""
-
-    # 1. Очистка и нормализация
-    text = text.strip()
-    text = text.lower()
-
-    # 2. Замена нескольких пробелов на один
-    import re
-    text = re.sub(r'\s+', ' ', text)
-
-    # 3. Каждое слово с заглавной буквы
-    text = text.title()
-
-    # 4. Удаление определенных символов
-    text = text.replace("-", " ")
-
-    # 5. Разбиение на слова
-    words = text.split()
-
-    # 6. Фильтрация слов
-    filtered_words = [word for word in words if word.isalpha()]
-
-    # 7. Соединение обратно
-    result = " ".join(filtered_words)
-
-    return result
-
-
-# Пример использования
-input_text = "  HELLO-WORLD  python123  programming!!!  "
-print(process_text(input_text))  # Hello World Python Programming
-
-# 9. ПРОВЕРКА РАБОТЫ С РАЗНЫМИ ККОДИРОВКАМИ
+"""ПРОВЕРКА РАБОТЫ С РАЗНЫМИ КОДИРОВКАМИ"""
 # Работа с Unicode
 unicode_text = "Hello Привет 你好 🌍"
-print(f"Длина строки: {len(unicode_text)}")  # 19 символов
+print(f"Длина строки: {len(unicode_text)}")  # 17 символов
 print(f"Только буквы: {unicode_text.isalpha()}")  # False
 print(f"Только ASCII: {unicode_text.isascii()}")  # False
 
 # Проверка на наличие определенных символов
 print("Содержит кириллицу:", any('\u0400' <= c <= '\u04FF' for c in unicode_text))
 print("Содержит эмодзи:", any('\U0001F300' <= c <= '\U0001F9FF' for c in unicode_text))
-
-# 10. СРАВНЕНИЕ ПРОИЗВОДИТЕЛЬНОСТИ МЕТОДОВ
-import timeit
-
-# Сравнение разных способов проверки
-text = "Hello123"
-
-# Метод 1: isdigit()
-time1 = timeit.timeit('text.isdigit()', globals=globals(), number=1000000)
-
-# Метод 2: Регулярные выражения
-import re
-
-pattern = re.compile(r'^\d+$')
-time2 = timeit.timeit('pattern.match(text)', globals=globals(), number=1000000)
-
-
-# Метод 3: Цикл
-def is_digit_loop(s):
-    for char in s:
-        if not char.isdigit():
-            return False
-    return bool(s)
-
-
-time3 = timeit.timeit('is_digit_loop(text)', globals=globals(), number=1000000)
-
-print(f"isdigit(): {time1:.4f} сек")
-print(f"regex: {time2:.4f} сек")
-print(f"loop: {time3:.4f} сек")

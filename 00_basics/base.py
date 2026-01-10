@@ -23,7 +23,7 @@ import this
 
 
 """ЗАРЕЗЕРВИРОВАННЫЕ СЛОВА"""
-help('keywords')  # список зарезервированных слов в Python.
+help('keywords')  # список зарезервированных слов в Python(35 слов)
 
 # False               class               from                or
 # None                continue            global              pass

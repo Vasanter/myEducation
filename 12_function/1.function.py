@@ -10,7 +10,7 @@
 #
 #
 # # Вызов функции
-# greet("Анна")  # Выведет: Привет, Анна!
+# greet("Анна")  # Привет, Анна!
 
 
 # 2. Аргументы по умолчанию
@@ -50,7 +50,7 @@
 # print(f"Наименьшее число => {minimum}. \nНаибольшее число => {maximum}.")
 
 
-# ПРИМЕР 1:
+# ПРИМЕР 1.
 # def some(number):
 #     if number % 2 == 0:
 #         return f'Число {number} - четное!'
@@ -61,16 +61,16 @@
 # print(some(int(input("Enter a number: "))))
 
 
-# ПРИМЕР 2:
+# ПРИМЕР 2. ПОДСЧЕТ СРЕДНЕГО ЗНАЧЕНИЯ
 # numbers_1 = [1, 2, 3, 4, 5]
 # average_1 = sum(numbers_1) / len(numbers_1)  # делим сумму чисел из списка на кол-во элементов из списка
-# print("Среднее значение цифр из списка равно: ", average_1)  # Output: 3.0
+# print("Среднее значение цифр из списка равно: ", average_1)  # 3.0
 #
 # numbers_2 = [6, 7, 8, 9, 10]
 # average_2 = sum(numbers_2) / len(numbers_2)
-# print("Среднее значение цифр из списка равно: ", average_2)  # Output: 8.0
-#
-#
+# print("Среднее значение цифр из списка равно: ", average_2)  # 8.0
+
+
 # # Т.к. блоки кода одинаковы, а отличие имеют только элементы списка, выше написанный код можно оптимизировать создав
 # # функцию:
 # numbers_1 = [1, 2, 3, 4, 5]
@@ -85,31 +85,31 @@
 # average_1 = find_average(numbers_1)  # вызываем функцию find_average с аргументом numbers_1
 # average_2 = find_average(numbers_2)
 #
-# print(average_1, average_2, sep=' / ')  # Output: 3.0 / 8.0
+# print(average_1, average_2, sep=' / ')  # 3.0 / 8.0
 
 
-# ПРИМЕР 3. Подсчет гласных букв в строке:
+# ПРИМЕР 3. Подсчет гласных букв в строке
 # def count_vowels(string):
 #     vowels = 'аяуюоеёэиыАЯУЮОЕЁЭИЫ'  # гласные
-#     count = 0
-#     for char in string:
-#         if char in vowels:
-#             count += 1
+#     count = 0  # переменная для подсчета гласных
+#     for char in string:  # перебираем каждый символ (char) в строке string:
+#         if char in vowels:  # если символ char находится в строке vowels
+#             count += 1  # если условие истинно (символ является гласной), увеличиваем счетчик count на 1.
 #     return count
 #
 #
-# print(count_vowels("Привет Антон!"))  # Outputs: 4
+# print(count_vowels("Привет Антон!"))  # 4
 # print(count_vowels("Простое предложение — это основная структурная единица синтаксиса, которая выражает законченную \
-# мысль и содержит подлежащее и сказуемое."))  # Outputs: 55
+# мысль и содержит подлежащее и сказуемое."))  # 55
 
 
-# ПРИМЕР 4. Указываем аргументы функции:
-# def welcome_message(name, age, location):  # название функции => welcome_message. Аргументы => name, age, location
+# ПРИМЕР 4. Указываем аргументы функции
+# def welcome_message(name, age, location):  # название функции => welcome_message. Параметры => name, age, location
 #     print(f"Shalom, {name}. You are {age} and from {location}!")
 #
 #
-# welcome_message('Valdo', 37, 'Belgium')  # Output: Shalom, Valdo. You are 37 years old!
-# welcome_message('Ted', 30, 'Turkey')  # Output: Shalom, Ted. You are 30 and from Turkey!
+# welcome_message('Valdo', 37, 'Belgium')  # Shalom, Valdo. You are 37 years old!
+# welcome_message('Ted', 30, 'Turkey')  # Shalom, Ted. You are 30 and from Turkey!
 
 
 # ПЛОХОЙ ПРИМЕР! - перепутали параметры (день - месяц)
@@ -131,16 +131,18 @@
 #
 # print(format_date(day=15, month="October"))  # The date is 15 of October.
 
-# ПРИМЕР 4. Явно указываем аргументы функции:
-# def custom_greeting(*, name: str, greeting: str = "Hello") -> str:
+# ПРИМЕР 5. Явно указываем аргументы функции
+# * — специальный синтаксис, который означает что все параметры после * должны передаваться только
+# как keyword-аргументы(по имени). Нельзя передать их как позиционные аргументы
+# def custom_greeting(*, name: str, greeting: str = "Hello") -> str:  # -> str: функция возвращает значение типа str
 #     return f"{greeting}, {name}!"
 #
 #
 # print(custom_greeting(name="John"))  # Hello, John!
-# print(custom_greeting(name="John", greeting="Good morning"))  # Outputs: Good morning, John!
+# print(custom_greeting(name="John", greeting="Good morning"))  # Good morning, John!
 
 
-# ПРИМЕР 5. Конвертер валют
+# ПРИМЕР 6. Конвертер валют
 # def to_euro(amount):
 #     rate = 92.09
 #     return amount * rate

@@ -9,8 +9,8 @@ a = [1, 2, 3]
 b = a  # 'b' теперь ссылается на тот же объект, что и 'a'
 c = [1, 2, 3]
 
-print(a is b)  # Output: True
-print(a is c)  # Output: False, хотя 'a' и 'c' имеют одно и то же значение
+print(a is b)  # True
+print(a is c)  # False, хотя 'a' и 'c' имеют одно и то же значение
 # В этом примере выражение a is c возвращает False. Несмотря на то что переменные имеют одинаковое значение, они
 # ссылаются на разные объекты в памяти.
 
@@ -20,5 +20,5 @@ a = [1, 2, 3]
 b = a  # 'b' теперь ссылается на тот же объект, что и 'a'
 c = [1, 2, 3]
 
-print(a is not b)  # Output: False
-print(a is not c)  # Output: True
+print(a is not b)  # False
+print(a is not c)  # True

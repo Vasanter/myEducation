@@ -1,22 +1,22 @@
 """ОПЕРАТОРЫ ПРИНАДЛЕЖНОСТИ"""
 # Операторы принадлежности в Python используются для проверки присутствия элемента в коллекции(списках, кортежах,
-# множествах, словарях) или в строке. Эти операторы возвращают True или False в зависимости от результата.В Python
+# множествах, словарях) или в строке. Эти операторы возвращают True или False в зависимости от результата. В Python
 # существуют два оператора принадлежности: in и not in.
 
-# Оператор in Проверяет, присутствует ли элемент в коллекции. Если присутствует, оператор возвращает True, в противном
+# Оператор in проверяет, присутствует ли элемент в коллекции. Если присутствует, оператор возвращает True, в противном
 # случае — False.
 
 my_list = [1, 2, 3, 4, 5]
-print(3 in my_list)  # Output: True
+print(3 in my_list)  # True
 
 my_string = 'Hello, world!'
-print('planet' in my_string)  # Output: False
+print('planet' in my_string)  # False
 
 
 # Оператор not in - обратный in. Проверяет, отсутствует ли элемент в коллекции.
 # Если отсутствует, возвращает True, иначе — False:
 my_list = [1, 2, 3, 4, 5]
-print(6 not in my_list)  # Output: True
+print(6 not in my_list)  # True
 
 my_string = 'Hello, world!'
-print('world' not in my_string)  # Output: False
+print('world' not in my_string)  # False

@@ -18,15 +18,15 @@ else:
     print(b)
 
 res = a if a > b else b  # переменной res присваиваем значение переменной a, если a > b иначе присваиваем значение b
-print(res)  # Output: 3
+print(res)  # 3
 
 # ... можно добавлять условия:
 res = a + 2 if a > b else b - 4
-print(res)  # Output: 5
+print(res)  # 5
 
 # ... использовать функции:
 res = abs(a) if a < b else abs(b)
-print(res)  # Output: 1
+print(res)  # 1
 
 
 # ПРИМЕР ПРЕОБРАЗОВАНИЯ 2:
