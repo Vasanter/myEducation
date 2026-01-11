@@ -17,19 +17,20 @@
 # '+': Чтение и запись.
 
 
-# Чтение файла
-with open('my_file.txt', 'r', encoding='utf-8') as f:
-    content = f.read()  # Читает весь файл в одну строку
-    print(content)
-
-# Запись в файл (создаст или перезапишет)
-with open('my_file.txt', 'w', encoding='utf-8') as f:
+# 1. Сначала создаем файл записью (если его нет)
+with open('persons.csv', 'w', encoding='utf-8') as f:
     f.write("Привет, мир!\n")
     f.write("Это новая строка.")
 
-# Добавление в конец
-with open('my_file.txt', 'a', encoding='utf-8') as f:
+# 2. Добавляем еще текст
+with open('persons.csv', 'a', encoding='utf-8') as f:
     f.write("\nДобавлено позже.")
+
+# 3. Теперь читаем (файл уже существует)
+with open('persons.csv', 'r', encoding='utf-8') as f:
+    content = f.read()
+    print("Содержимое файла:")
+    print(content)
 
 # Дополнительные действия с файлами (модуль os):
 # Проверка существования: os.path.exists('file.txt').

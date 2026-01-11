@@ -5,7 +5,7 @@
 
 
 user_roles = ("admin", "editor", "viewer")
-print(user_roles)  # Outputs: ("admin", "editor", "viewer")
+print(user_roles)  # ("admin", "editor", "viewer")
 
 # print(user_roles[1])  # "editor"
 
@@ -21,18 +21,18 @@ print(user_roles)  # Outputs: ("admin", "editor", "viewer")
 # not_tuple = ("apple")
 # print(type(not_tuple))  # <class 'str'>
 #
-# my_tuple = ("admin",)  # !!! запятая
+# my_tuple = ("admin",)  # !!! если есть запятая, то тип будет картеж
 # print(type(my_tuple))  # <class 'tuple'>
 
 
-# user_roles = ("admin", "editor", "viewer")
+# user_roles = ("admin", "editor", "viewer")  # распаковка картежа
 # role_1, role_2, role_3 = user_roles
 # print(role_1)  # "admin"
 # print(role_2)  # "editor"
 # print(role_3)  # "viewer"
 
 
-# user_roles = ["admin", "editor", "viewer"]  # with lists it works too
+# user_roles = ["admin", "editor", "viewer"]  # распаковка работает и со списками
 # role_1, role_2, role_3 = user_roles
 # print(role_1)  # "admin"
 # print(role_2)  # "editor"

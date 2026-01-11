@@ -2,29 +2,37 @@
 # Каждый ключ в словаре должен быть уникальным, и он используется для доступа к соответствующему значению. Словари часто
 # называют ассоциативными массивами или отображениями.
 
-
+# ПРИМЕР 1.
 # person = {
 #     "name": "John",
 #     "age": 30,
 #     "city": "New York"
 # }
-# print(person)  # Outputs: {'name': 'John', 'age': 30, 'city': 'New York'}
+#
+# print(person["name"])  # 'John'
+# print(person.get("name"))  # 'John'
+# print(person.get("country"))  # None - в случае если объекта нет в списке
+# print(person.get("country", "USA"))  # USA - создаем значение по умолчанию
+# print(person.get("name", "Donny"))  # John
+
+
+# ПРИМЕР 2.
+# person = {
+#     "name": "John",
+#     "age": 30,
+#     "city": "New York"
+# }
+# print(person)  # {'name': 'John', 'age': 30, 'city': 'New York'}
 # person["job"] = "Engineer"  # добавится новое ключ-значение в конец списка =>
 # print(person)  # {'name': 'John', 'age': 40, 'city': 'New York', 'job': 'Engineer'}
 
 
-# person = {"name": "John", "age": 30, "city": "New York"}  # or person = dict()
-# print(person)  # {'name': 'John', 'age': 30, 'city': 'New York'}
-
-
-person = {
-    "name": "John",
-    "age": 30,
-    "city": "New York"
-}
-
-print(person["name"])  # Output: 'John'
-print(person.get("name"))  # Output: 'John'
-print(person.get("country"))  # Output: None
-print(person.get("country", "USA"))  # Output: USA
-print(person.get("name", "Donny"))  # Output: John
+# ПРИМЕР 3.
+# person = {
+#     "name": "John",
+#     "age": 30,
+#     "city": "New York"
+# }
+#
+# for key, value in person.items():
+#     print(key, value)  # выводим ключ и значение из словаря

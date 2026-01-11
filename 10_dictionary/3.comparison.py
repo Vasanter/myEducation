@@ -10,4 +10,4 @@ other_person = {
     "age": 30,
     "name": "John",
 }
-print(person == other_person)  # Outputs: True - сравнение  списков
+print(person == other_person)  # True - сравнение  списков
