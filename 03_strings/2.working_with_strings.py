@@ -61,5 +61,28 @@
 # print(f"Текущий год: {today:%Y}-ый")  # Текущий год: 2025-ый
 
 
+# str.format_map(mapping) - форматирование из словаря
+# data = {"name": "Alice", "age": 25}
+# print("{name} is {age} years old".format_map(data))  # Alice is 25 years old
+
+
+# str.maketrans(x[, y[, z]]) и str.translate(table) - замена символов
+# Простая замена
+# trans_table = str.maketrans("aeiou", "12345")
+# text = "hello world"
+# print(text.translate(trans_table))  # h2ll4 w4rld
+
+
+# Удаление символов
+# trans_table = str.maketrans("", "", "aeiou")
+# print(text.translate(trans_table))  # hll wrld
+
+
+# Словарь для замены
+# trans_dict = {ord('a'): 'A', ord('e'): 'E', ord('o'): None}
+# trans_table = str.maketrans(trans_dict)
+# print("hello world".translate(trans_table))  # hEll w rld
+
+
 """СЫРЫЕ СТРОКИ"""
 # print(r"Как пройти в \"библиотеку?\"") # Как пройти в \"библиотеку?\""сырые" строки - подавляют экранирование
