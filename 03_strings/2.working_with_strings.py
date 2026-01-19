@@ -86,3 +86,8 @@
 
 """СЫРЫЕ СТРОКИ"""
 # print(r"Как пройти в \"библиотеку?\"") # Как пройти в \"библиотеку?\""сырые" строки - подавляют экранирование
+
+
+# file_name = "pic.jpeg"
+# text = rf"C:\Users\<NAME>\Desktop\Python Project\{file_name}"
+# print(text)
