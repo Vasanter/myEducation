@@ -47,16 +47,16 @@ print(res)  # 1
 # a = 12
 # b = 7
 # maximum = a if a > b else b
-# print(maximum)  # Output: 12
+# print(maximum)  # 12
 
 # Проверка чётности числа:
 # a = int(input("Enter a number: "))
 # result = "четное" if a % 2 == 0 else "нечетное"
-# print(result)  # Output: нечетное
+# print(result)  # нечетное
 
 
 # Преобразование строки в верхний регистр по условию:
 # s = 'python'
 # _type = 'upper'
 # res = s.upper() if _type == 'upper' else s
-# print(res)  # Output: PYTHON
+# print(res)  # PYTHON

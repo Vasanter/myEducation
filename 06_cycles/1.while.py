@@ -95,3 +95,19 @@
 #     print("\n")
 #     j = 1
 #     i += 1
+
+
+# Угадай число
+# import random
+# secret_number = random.randint(1, 100)
+#
+#
+# while True:
+#     number = int(input("Введи загаданное число: "))
+#     if number < secret_number:
+#         print("Слишком мало")
+#     elif number > secret_number:
+#         print("Слишком много")
+#     elif number == secret_number:
+#         print("Поздравляю! Вы угадали!")
+#         break
