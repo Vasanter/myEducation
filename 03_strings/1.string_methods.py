@@ -266,7 +266,7 @@
 """ПРОВЕРКА РАБОТЫ С РАЗНЫМИ КОДИРОВКАМИ"""
 # Работа с Unicode
 # unicode_text = "Hello Привет 你好 🌍"
-# print(f"Длина строки: {len(unicode_text)}")  # 17_comprehensions символов
+# print(f"Длина строки: {len(unicode_text)}")  # 17_list_comprehensions символов
 # print(f"Только буквы: {unicode_text.isalpha()}")  # False
 # print(f"Только ASCII: {unicode_text.isascii()}")  # False
 
