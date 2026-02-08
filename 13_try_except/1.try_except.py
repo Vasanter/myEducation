@@ -58,4 +58,13 @@
 
 
 # ПРИМЕР 5:
-...
+# def safe_division(a: int, b: int) -> float | None:  # аннотация типов
+#     try:
+#         return a/b
+#     except ZeroDivisionError as e:
+#         print(f'Ошибка: деление на ноль -> {e}')
+#         return None
+#
+#
+# print(safe_division(52,  0))
+# print(safe_division(52,  20))
