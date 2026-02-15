@@ -9,48 +9,41 @@
 
 
 # if False:
-#     print("Hello, world!")  # эта строка не будет выведена
+#     print("Hello, world!")  # строка не будет выведена
 
 
-# message = "Hello, world!"  # True т.к. строка не пустая
-# if message:
+# message = "Hello, world!"
+# if message:  # True т.к. строка не пустая
 #     print("Сообщение не пустое!")
 
 
-# name = input()
+# something = input("Введи что нибудь: ")
 #
-# if name:
-#     print('Ты ввел =>', name)
+# if something:
+#     print('Ты ввел =>', something)
 # else:
 #     print('Вы ничего не ввели!')
 
 
-# a = int(input("Введите число: "))
-# if 10 <= a <= 20:
+# num = int(input("Введите число: "))
+# if 10 <= num <= 20:
 #     print('Число находиться в диапазоне между 10 и 20!')
 
 
-# x = 10
-# y = 20
+# num1 = 10
+# num2 = 20
 #
-# if x > 0:
-#     if y > 0:  # лучше так не писать, а писать в рамках одного условия, вот так => if x > 0 and y > 0:
-#         print("x и y положительные")
+# if num1 > 0:
+#     if num2 > 0:  # лучше так не писать, а писать в рамках одного условия, вот так => if num1 > 0 and num2 > 0:
+#         print("num1 и num2 положительные")
 
 
-# x = 10
-# y = 20
+# num = int(input("Введите любое число: "))
 #
-# if x > 0 and y > 0:  # оба условия должны быть выполнены
-#     print("x и y положительные!")
-
-
-# x = int(input("Введите любое число: "))
-#
-# if x > 0:
-#     print(f"Число {x} положительное")
-# elif x < 0:
-#     print(f"Число {x} отрицательное")
+# if num > 0:
+#     print(f"Число {num} положительное")
+# elif num < 0:
+#     print(f"Число {num} отрицательное")
 # else:
 #     print("Введенное число равно нулю")
 
