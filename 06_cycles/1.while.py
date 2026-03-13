@@ -18,7 +18,7 @@
 # y = 5
 # while y > 0:
 #     print(f'Counter is: {y}')
-#     y -= 1
+#     y -= 1  # уменьшаем x на 1 в каждой итерации
 # print('Конец')
 
 
@@ -111,3 +111,21 @@
 #     elif number == secret_number:
 #         print("Поздравляю! Вы угадали!")
 #         break
+
+
+# Ручное заполнение списка в цикле» (или цикл с накоплением):
+# length = int(input("Enter length: "))  # указываем длину
+# user_list = []  # пустой список
+# i = 1  # счётчик цикла (или итератор)
+#
+# while i < length + 1:
+#     user_list.append(int(input(f"Enter element # {i}: ")))
+#     i += 1
+#
+# print(user_list)
+#
+#
+# Через списковое включение (List Comprehension) — более лаконичная запись!
+# length = int(input("Enter length: "))
+# user_list = [int(input(f"Enter element # {i}: ")) for i in range(1, length + 1)]
+# print(user_list)
