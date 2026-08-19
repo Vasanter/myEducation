@@ -1,13 +1,151 @@
-# Terminal => ShellPath - смена оболочки ... cmd / PowerShell и пр.
+# ⚙️ НАСТРОЙКА ТЕРМИНАЛА В PYCHARM
 
-# Изменение политики в PowerShell:
-# По умолчанию, в PowerShell может быть включена политика, которая блокирует выполнение скриптов.
-# Чтобы разрешить выполнение скриптов, вам может потребоваться запустить PowerShell от имени администратора и выполнить
-# следующую команду: Set-ExecutionPolicy Unrestricted
+## 📍 Настройка Shell Path (путь к оболочке)
 
-# Другие варианты решения проблемы:
-# https://winitpro.ru/index.php/2020/06/03/powershell-execution-policy-zapusk-scriptov/
-# см. Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+### Где найти:
+`File → Settings → Tools → Terminal → Shell Path`
+
+### Варианты оболочек:
+
+| Оболочка | Путь | Описание |
+|----------|------|-----------|
+| **PowerShell** | `powershell.exe` | Стандартная оболочка Windows |
+| **CMD** | `cmd.exe` | Классическая командная строка |
+| **Git Bash** | `"C:\Program Files\Git\bin\bash.exe"` | Bash от Git (рекомендуется) |
+| **Windows Terminal** | `wt.exe` | Современный терминал Windows |
+| **WSL** | `wsl.exe` | Windows Subsystem for Linux |
+| **PowerShell 7** | `pwsh.exe` | Новая версия PowerShell |
+
+> 💡 **Рекомендация:** Git Bash даёт Unix-подобные команды (ls, grep, find) на Windows
+
+---
+
+## 🔧 НАСТРОЙКА POWERSHELL
+
+### Проблема с политикой выполнения скриптов:
+По умолчанию PowerShell может блокировать выполнение скриптов (включая активацию виртуального окружения).
+
+### Проверить текущую политику:
+```powershell
+Get-ExecutionPolicy
+
+Возможные значения:
+Restricted — запрещено всё (по умолчанию)
+
+RemoteSigned — можно запускать локальные скрипты
+
+AllSigned — только подписанные скрипты
+
+Unrestricted — всё разрешено (небезопасно)
+
+Решения:
+1. Для текущего пользователя (безопаснее):
+powershell
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+2. Для всей системы (нужны права администратора):
+powershell
+# Запустить PowerShell от имени администратора
+Set-ExecutionPolicy RemoteSigned
+3. Полное разрешение (не рекомендуется):
+powershell
+Set-ExecutionPolicy Unrestricted
+4. Обход политики для одного запуска:
+powershell
+powershell -ExecutionPolicy Bypass -File script.ps1
+Дополнительные ресурсы:
+Подробная статья о политиках выполнения
+
+Официальная документация Microsoft
+
+Другие полезные команды PowerShell:
+powershell
+# Просмотр всех политик для разных областей
+Get-ExecutionPolicy -List
+
+# Сброс политики к значению по умолчанию
+Set-ExecutionPolicy -ExecutionPolicy Restricted -Scope CurrentUser
 
 
-# PLUGINS: Rainbow Brackets // Atom Material Icons // CodeGlance // Indent Rainbow // JetBrains AI Assistant
+🎨 ПОЛЕЗНЫЕ ПЛАГИНЫ ДЛЯ PYCHARM
+Установка:
+File → Settings → Plugins → Marketplace
+
+Рекомендуемые плагины:
+Плагин	Описание	Зачем нужен
+Rainbow Brackets	Подсветка парных скобок разными цветами	Упрощает чтение вложенного кода
+Atom Material Icons	Красивые иконки файлов	Лучшая навигация по проекту
+CodeGlance	Мини-карта кода справа	Быстрая навигация по файлу
+Indent Rainbow	Подсветка отступов цветами	Визуализация вложенности
+JetBrains AI Assistant	AI-помощник в IDE	Автодополнение, объяснение кода
+
+Дополнительные полезные плагины:
+Плагин	Описание
+.env files support	Поддержка .env файлов
+.ignore	Подсветка и работа с .gitignore
+GitToolBox	Расширенные возможности Git
+Key Promoter X	Подсказывает горячие клавиши
+String Manipulation	Операции со строками (case, sort, filter)
+SonarLint	Анализ качества кода
+Tabnine	AI-автодополнение (альтернатива JetBrains AI)
+Docker	Работа с Docker контейнерами
+Database Navigator	Работа с базами данных
+CSV Editor	Просмотр CSV файлов в табличном виде
+Json Parser	Форматирование и проверка JSON
+Markdown Editor	Улучшенный редактор Markdown
+WakaTime	Отслеживание времени программирования
+
+
+🚀 ДОПОЛНИТЕЛЬНЫЕ НАСТРОЙКИ ТЕРМИНАЛА
+Настройка цветовой схемы:
+File → Settings → Editor → Color Scheme → Console Colors
+
+Настройка шрифта терминала:
+File → Settings → Editor → Font → Console Font
+
+Полезные команды терминала:
+bash
+# Очистить терминал
+clear  # или cls в Windows
+
+# Показать текущую директорию
+pwd  # или cd в Windows
+
+# Список файлов с подробной информацией
+ls -la  # или dir в Windows
+
+# Создать файл
+touch filename.txt  # или echo > filename.txt в Windows
+
+# Просмотр содержимого файла
+cat filename.txt  # или type filename.txt в Windows
+Горячие клавиши для терминала:
+Комбинация	Действие
+Alt + F12	Открыть/закрыть терминал
+Ctrl + Shift + T	Новая вкладка терминала
+Ctrl + Tab	Переключение между вкладками
+Ctrl + C	Прервать текущую команду
+Ctrl + L	Очистить экран
+↑ / ↓	История команд
+Tab	Автодополнение путей
+
+
+💡 РЕШЕНИЕ ЧАСТЫХ ПРОБЛЕМ
+1. Виртуальное окружение не активируется:
+powershell
+# Если ошибка "cannot be loaded because running scripts is disabled"
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+
+# Затем попробуйте снова
+venv\Scripts\activate
+2. Терминал открывается в неправильной папке:
+File → Settings → Tools → Terminal → Start Directory
+
+3. Кириллица отображается некорректно:
+Добавьте в начало скрипта: # -*- coding: utf-8 -*-
+
+Проверьте кодировку: File → Settings → Editor → File Encodings
+
+4. Медленный запуск терминала:
+Отключите плагины, которые не используются
+
+Увеличьте память: Help → Change Memory Settings

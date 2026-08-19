@@ -1,3 +1,5 @@
+import time
+
 import requests
 
 lat = input('Введите широту: ')  # 55.628028 // 55.688358
@@ -7,6 +9,7 @@ long = input('Введите долготу: ')  # 37.595152 // 37.282246
 def intro(func):
     def wrapper(*args, **kwargs):
         print('Генерирую  данные...')
+        time.sleep(3)
         return func(*args, **kwargs)
 
     return wrapper
@@ -40,5 +43,5 @@ print('Текущая температура:', weather.temperature)
 print('Сегодня -', weather.warm_or_cold())
 
 # print('Список ключей: ')
-for key in weather.data:
-    print(key)
+# for key in weather.data:
+#     print(key)
