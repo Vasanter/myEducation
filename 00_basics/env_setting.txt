@@ -47,7 +47,7 @@ source venv/bin/activate
 # 3. ПРОВЕРКА АКТИВАЦИИ
 # ============================================
 
-# Проверить, что используется нужный Python:
+# Посмотреть путь к активному интерпретатору Python:
 which python  # macOS/Linux
 where python  # Windows
 
