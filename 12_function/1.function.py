@@ -175,3 +175,32 @@
 #     print("При пересчете в рубли:", round(to_usd(money), 2))
 # else:
 #     print("Такой пары нет!")
+#
+
+
+# ПРИМЕР 7. Калькулятор(улучшенный)
+import operator
+
+
+def calc(a, b, operation):
+    # Словарь сопоставляет символ операции с функцией из модуля operator
+    operations = {
+        '+': (operator.add, '+'),
+        '-': (operator.sub, '-'),
+        '*': (operator.mul, '*'),
+        '/': (operator.truediv, '/'),
+        '**': (operator.pow, '**')  # Легко добавили новую операцию!
+    }
+
+    if operation not in operations:
+        return f'Операция => {operation} - не поддерживается!'
+
+    if operation == '/' and b == 0:
+        return 'Ошибка: Деление на ноль!'
+
+    func, symbol = operations[operation]
+    return f'{a} {symbol} {b} = {func(a, b)}'
+
+
+# Тест новой операции
+print(calc(2, 3, '**'))  # Выведет: 2 ** 3 = 8
