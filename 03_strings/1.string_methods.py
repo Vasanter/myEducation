@@ -1,276 +1,318 @@
-"""МЕТОДЫ И ФУНКЦИИ СТРОК"""
+"""
+МЕТОДЫ И ФУНКЦИИ СТРОК В PYTHON
+=================================
+Строки в Python — неизменяемые последовательности символов.
+Все методы возвращают НОВУЮ строку, не изменяя оригинал.
+"""
 
-"""БАЗОВЫЕ МЕТОДЫ"""
-# str.capitalize() - первая буква заглавная
-# text = "hello world"
-# print(text.capitalize())  # Hello world
+# ============================================
+# 1. БАЗОВЫЕ МЕТОДЫ (ИЗМЕНЕНИЕ РЕГИСТРА)
+# ============================================
 
+text = "hello world python"
 
-# str.title() - каждое слово будет с заглавной буквы
-# text = "hello world python"
-# print(text.title())  # Hello World Python
+# str.capitalize() — первая буква заглавная, остальные строчные
+print(text.capitalize())  # Hello world python
 
+# str.title() — каждое слово с заглавной буквы
+print(text.title())  # Hello World Python
 
-# str.upper() - перевод в верхний регистр
-# text = "Hello"
-# print(text.upper())  # HELLO
+# str.upper() — все буквы в верхнем регистре
+print(text.upper())  # HELLO WORLD PYTHON
 
+# str.lower() — все буквы в нижнем регистре
+print(text.upper().lower())  # hello world python
 
-# str.lower() - перевод в нижний регистр
-# text = "HELLO"
-# print(text.lower())  # hello
+# str.swapcase() — инвертирование регистра
+text_mixed = "Hello World"
+print(text_mixed.swapcase())  # hELLO wORLD
 
+# Цепочка методов:
+print(text.title().swapcase())  # hELLO wORLD pYTHON
 
-# str.swapcase() - инвертировать регистр
-# text = "Hello World"
-# print(text.swapcase())  # hELLO wORLD
+# ============================================
+# 2. МЕТОДЫ ПРОВЕРКИ СОДЕРЖИМОГО
+# ============================================
 
+# str.isalpha() — только буквы (без пробелов и цифр)
+print("Hello".isalpha())  # True
+print("Hello123".isalpha())  # False
+print("Hello World".isalpha())  # False (пробел)
 
-"""МЕТОДЫ ПРОВЕРКИ"""
-# str.isalpha() - строка содержит только буквы
-# print("Hello".isalpha())  # True
-# print("Hello123".isalpha())  # False
-# print("Hello World".isalpha())  # False (пробел не буква)
+# str.isdigit() — только цифры
+print("123".isdigit())  # True
+print("123.45".isdigit())  # False (точка)
 
+# str.isalnum() — только буквы и цифры (без пробелов и спецсимволов)
+print("Hello123".isalnum())  # True
+print("Hello 123".isalnum())  # False (пробел)
 
-# str.isdigit() - строка содержит только цифры
-# print("123".isdigit())  # True
-# print("123.45".isdigit())  # False
-# print("¹²³".isdigit())  # True (unicode цифры)
+# str.isdecimal() — только десятичные цифры
+print("123".isdecimal())  # True
+print("½".isdecimal())  # False (дробь)
 
+# str.isnumeric() — числовые символы (включая дроби, римские цифры)
+print("123".isnumeric())  # True
+print("½".isnumeric())  # True
+print("Ⅳ".isnumeric())  # True (римская цифра)
+
+# str.islower() / str.isupper() — проверка регистра
+print("hello".islower())  # True
+print("HELLO".isupper())  # True
+print("Hello".islower())  # False
+
+# str.isspace() — только пробельные символы
+print("   ".isspace())  # True
+print("\t\n".isspace())  # True
+print(" a ".isspace())  # False
+
+# str.istitle() — каждое слово с заглавной буквы
+print("Hello World".istitle())  # True
+print("Hello world".istitle())  # False
 
-# str.isalnum() - строка содержит только буквы или цифры
-# print("Hello123".isalnum())  # True
-# print("Hello 123".isalnum())  # False (пробел)
-# print("Hello!".isalnum())  # False (спецсимвол)
+# ============================================
+# 3. ПРОВЕРКА НАЧАЛА И КОНЦА СТРОКИ
+# ============================================
 
+text = "Hello World"
+
+# str.startswith() — начинается ли строка с префикса
+print(text.startswith("Hello"))  # True
+print(text.startswith("He"))  # True
+print(text.startswith(("Hi", "He")))  # True (кортеж вариантов)
+print(text.startswith("World", 6))  # True (начиная с позиции 6)
 
-# str.isdecimal() - строка содержит только десятичные цифры
-# print("123".isdecimal())  # True
-# print("½".isdecimal())  # False
-# print("0x1F".isdecimal())  # False
+# str.endswith() — заканчивается ли строка суффиксом
+filename = "document.pdf"
+print(filename.endswith(".pdf"))  # True
+print(filename.endswith((".txt", ".pdf")))  # True (кортеж)
+print(filename.endswith("pdf", 0, 12))  # True (в срезе)
+
+
+# Практическое применение:
+def is_image_file(filename):
+    """Проверка, является ли файл изображением"""
+    return filename.lower().endswith(('.jpg', '.png', '.gif', '.bmp'))
 
 
-# str.isnumeric() - строка содержит только числовые символы
-# print("123".isnumeric())  # True
-# print("½".isnumeric())  # True
-# print("Ⅳ".isnumeric())  # True (римские цифры)
+print(is_image_file("photo.JPG"))  # True
 
-
-# str.islower() - проверяет что все буквы в нижнем регистре
-# print("hello".islower())  # True
-# print("Hello".islower())  # False
-# print("123".islower())  # False (нет букв)
-
-
-# str.isupper() - проверяет что все буквы в верхнем регистре
-# print("HELLO".isupper())  # True
-# print("Hello".isupper())  # False
-
-
-# str.isspace() - проверяет что строка содержит только пробельные символы
-# print("   ".isspace())  # True
-# print("\t\n".isspace())  # True
-# print("   a".isspace())  # False
-
-
-# str.istitle() - проверяет что каждое слово написано с заглавной буквы
-# print("Hello World".istitle())  # True
-# print("Hello world".istitle())  # False
-# print("123 Hello".istitle())  # False
-
-
-# str.startswith(prefix) - проверяет что строка начинается с ...
-# text = "Hello World"
-# print(text.startswith("Hello"))  # True
-# print(text.startswith("He"))  # True
-# print(text.startswith(("Hi", "He")))  # True (кортеж вариантов)
-# print(text.startswith("World", 6))  # True (начиная с позиции 6)
-
-
-# str.endswith(suffix) - проверяет что строка заканчивается на ..
-# text = "file.txt"
-# print(text.endswith(".txt"))  # True
-# print(text.endswith((".txt", ".pdf")))  # True
-# print(text.endswith("txt", 0, 8))  # True (в срезе)
-
-
-# str.isascii() - проверяет что строка содержит только ASCII символы
-# print("Hello".isascii())  # True
-# print("Привет".isascii())  # False
-# print("Hello123!".isascii())  # True
-
-
-# str.isprintable() - проверяет что строка содержит только печатные символы
-# print("Hello".isprintable())  # True
-# print("Hello\n".isprintable())  # False (непечатный \n)
-
-
-# str.isidentifier() - проверяет что строка содержит валидный идентификатор (именем переменной, функции, класса и т. д.)
-# print("variable".isidentifier())  # True
-# print("var_name".isidentifier())  # True
-# print("123var".isidentifier())  # False
-# print("var-name".isidentifier())  # False
-
-
-"""МЕТОДЫ ПОИСКА И ЗАМЕНЫ"""
-# str.find() - ищет первое вхождение подстроки в строке
-# text = "Hello World World"
-# print(text.find("World"))  # 6
-# print(text.find("world"))  # -1 (не найдено)
-# print(text.find("World", 7))  # 12 (начиная с позиции 7)
-# print(text.find("o", 5, 10))  # 7 (в диапазоне 5-10)
-
-
-# str.rfind() - поиск с конца
-# text = "Hello World World"
-# print(text.rfind("World"))  # 12
-# print(text.rfind("o"))  # 15
-
-
-# str.index() - ищет первое вхождение указанной подстроки (или символа) в строке и возвращает его начальный индекс
-# text = "Hello World"
-# try:
-#     print(text.index("World"))  # 6
-#     print(text.index("world"))  # ValueError
-# except ValueError as e:
-#     print("Подстрока не найдена")
-
-
-# str.rindex() - Index с конца
-# text = "Hello World World"
-# print(text.rindex("World"))  # 12
-
-
-# str.count() - количество вхождений
-# text = "Hello World World"
-# print(text.count("World"))  # 2
-# print(text.count("o"))  # 3
-# print(text.count("l", 0, 5))  # 2 (в диапазоне)
-
-
-# str.replace(old, new) - замена подстроки
-# text = "Hello World"
-# print(text.replace("World", "Python"))  # Hello Python
-# print(text.replace("l", "L", 2))  # HeLLo World (только первые два символа)
-# print("aaaa".replace("aa", "b"))  # bb (последовательная замена)
-
-
-"""МЕТОДЫ ФОРМАТИРОВАНИЯ"""
-# str.strip([chars]) - удаление пробелов с обоих сторон
-# text = "  Hello World  "
-# print(text.strip())  # "Hello World"
-# print("###Hello###".strip("#"))  # "Hello"
-# print("  Hello  ".strip(" H"))  # "ello" (удалил H и пробелы)
-
-
-# str.lstrip([chars]) - удаление слева
-# text = "  Hello  "
-# print(text.lstrip())  # "Hello  "
-# print("www.example.com".lstrip("w."))  # "example.com"
-
-
-# str.rstrip([chars]) - удаление справа
-# text = "  Hello  "
-# print(text.rstrip())  # "  Hello"
-# print("example.com...".rstrip("."))  # "example.com"
-
-
-# str.ljust(width[, fillchar]) - выравнивание влево
-# text = "Hello"
-# print(text.ljust(10))  # "Hello     "
-# print(text.ljust(10, "*"))  # "Hello*****"
-# print(text.ljust(3))  # "Hello" (если width меньше длины)
-
-
-# str.rjust(width[, fillchar]) - выравнивание вправо
-# text = "Hello"
-# print(text.rjust(10))  # "     Hello"
-# print(text.rjust(10, "-"))  # "-----Hello"
-
-
-# str.center(width[, fillchar]) - выравнивание по центру
-# text = "Hello"
-# print(text.center(11))  # "   Hello   "
-# print(text.center(11, "="))  # "===Hello==="
-# print(text.center(3))  # "Hello"
-
-
-# str.zfill(width) - заполнение нулями слева
-# print("42".zfill(5))  # "00042"
-# print("-42".zfill(5))  # "-0042" (знак остается слева)
-# print("3.14".zfill(6))  # "003.14"
-
-
-# str.expandtabs([tabsize]) - замена табуляций
-# text = "Hello\tWorld"
-# print(text.expandtabs())  # "Hello   World" (8 пробелов по умолчанию)
-# print(text.expandtabs(4))  # "Hello World" (4 пробела)
-
-
-"""МЕТОДЫ РАЗБИЕНИЯ И СОЕДИНЕНИЯ"""
-# str.split([sep[, maxsplit]]) - разделяет строку на список подстрок (слов) на основе заданного разделителя
-# text = "apple,banana,cherry"
-# print(text.split(","))  # ['apple', 'banana', 'cherry']
-# print("a b c d".split())  # ['a', 'b', 'c', 'd'] (по пробелам)
-# print("a,b,c,d".split(",", 2))  # ['a', 'b', 'c, d'] (максимум 2 разбиения)
-# print("".split(","))  # [''] (особый случай)
-
-
-# str.rsplit([sep[, maxsplit]]) - разделяет строку на список подстрок по заданному разделителю, возвращая этот список
-# text = "apple,banana,cherry"
-# print(text.rsplit(",", 1))  # ['apple,banana', 'cherry']
-
-
-# str.splitlines([keepends]) - разбивает строку на список отдельных строк по символам переноса строки
-# (например, \n, \r, \r\n), удаляя сами символы переноса по умолчанию
-# text = "Hello\nWorld\nPython"
-# print(text.splitlines())  # ['Hello', 'World', 'Python']
-# print(text.splitlines(True))  # ['Hello\n', 'World\n', 'Python']
-
-
-# str.partition(sep) - разбивает строку на три части по первому вхождению заданного разделителя (подстроки) и
-# возвращает их в виде кортежа: [часть_до_разделителя, сам_разделитель, часть_после_разделителя].
-# text = "Hello World Python"
-# print(text.partition(" "))  # ('Hello', ' ', 'World Python')
-# print("Hello".partition(" "))  # ('Hello', '', '') (если разделитель не найден)
-
-
-# str.rpartition(sep) - разбивает строку на три части по последнему вхождению заданного разделителя (sep), возвращая
-# кортеж из трех элементов
-# text = "Hello World Python World"
-# print(text.rpartition(" "))  # ('Hello World Python', ' ', 'World')
-
-
-# str.join(iterable) -  объединяет элементы итерируемого объекта (например, списка строк) в одну строку, используя
-# строку, к которой метод был применен, в качестве разделителя между элементами
-# words = ["Hello", "World", "Python"]
-# print(", ".join(words))  # "Hello, World, Python"
-# print("".join(["a", "b", "c"]))  # "abc"
-# print("-".join("123"))  # "1-2-3"
-
-
-"""СОВРЕМЕННЫЕ МЕТОДЫ (Python 3.9+)"""
-# str.removeprefix(prefix) - удаление префикса
-# text = "HelloWorld"
-# print(text.removeprefix("Hello"))  # "World"
-# print(text.removeprefix("Hi"))  # "HelloWorld" (не удаляет если нет)
-
-
-# str.removesuffix(suffix) - удаление суффикса
-# text = "file.txt"
-# print(text.removesuffix(".txt"))  # "file"
-# print(text.removesuffix(".pdf"))  # "file.txt"
-
-
-"""ПРОВЕРКА РАБОТЫ С РАЗНЫМИ КОДИРОВКАМИ"""
-# Работа с Unicode
-# unicode_text = "Hello Привет 你好 🌍"
-# print(f"Длина строки: {len(unicode_text)}")  # 17_list_comprehensions символов
-# print(f"Только буквы: {unicode_text.isalpha()}")  # False
-# print(f"Только ASCII: {unicode_text.isascii()}")  # False
-
-
-# Проверка на наличие определенных символов
-# print("Содержит кириллицу:", any('\u0400' <= c <= '\u04FF' for c in unicode_text))
-# print("Содержит эмодзи:", any('\U0001F300' <= c <= '\U0001F9FF' for c in unicode_text))
+# ============================================
+# 4. ПРОВЕРКА ТИПОВ СИМВОЛОВ
+# ============================================
+
+# str.isascii() — только ASCII символы
+print("Hello".isascii())  # True
+print("Привет".isascii())  # False
+
+# str.isprintable() — только печатные символы
+print("Hello".isprintable())  # True
+print("Hello\n".isprintable())  # False (перенос строки)
+
+# str.isidentifier() — валидный идентификатор Python
+print("variable".isidentifier())  # True
+print("var_name".isidentifier())  # True
+print("123var".isidentifier())  # False (начинается с цифры)
+print("var-name".isidentifier())  # False (дефис)
+
+# ============================================
+# 5. МЕТОДЫ ПОИСКА
+# ============================================
+
+text = "Hello World World"
+
+# str.find() — индекс первого вхождения (-1, если не найдено)
+print(text.find("World"))  # 6
+print(text.find("world"))  # -1 (регистр важен)
+print(text.find("World", 7))  # 12 (поиск с позиции 7)
+print(text.find("o", 5, 10))  # 7 (поиск в диапазоне)
+
+# str.rfind() — индекс последнего вхождения
+print(text.rfind("World"))  # 12
+print(text.rfind("o"))  # 15
+
+# str.index() — как find(), но вызывает ValueError, если не найдено
+try:
+    print(text.index("World"))  # 6
+    print(text.index("world"))  # ValueError
+except ValueError:
+    print("Подстрока не найдена")
+
+# str.rindex() — как rfind(), но с ValueError
+print(text.rindex("World"))  # 12
+
+# str.count() — количество вхождений
+print(text.count("World"))  # 2
+print(text.count("o"))  # 3
+print(text.count("l", 0, 5))  # 2 (в диапазоне)
+
+# ============================================
+# 6. ЗАМЕНА ПОДСТРОК
+# ============================================
+
+text = "Hello World"
+
+# str.replace(old, new[, count]) — замена подстрок
+print(text.replace("World", "Python"))  # Hello Python
+print(text.replace("l", "L", 2))  # HeLLo World (только первые 2)
+print("aaaa".replace("aa", "b"))  # bb (последовательная замена)
+
+# Практический пример:
+phone = "+7 (999) 123-45-67"
+cleaned = phone.replace("(", "").replace(")", "").replace("-", "").replace(" ", "")
+print(cleaned)  # +79991234567
+
+# ============================================
+# 7. УДАЛЕНИЕ ПРОБЕЛОВ И СИМВОЛОВ
+# ============================================
+
+text = "  Hello World  "
+
+# str.strip() — удаление с обеих сторон
+print(text.strip())  # "Hello World"
+print("###Hello###".strip("#"))  # "Hello"
+
+# str.lstrip() — удаление слева
+print(text.lstrip())  # "Hello World  "
+print("www.example.com".lstrip("w."))  # "example.com"
+
+# str.rstrip() — удаление справа
+print(text.rstrip())  # "  Hello World"
+print("example.com...".rstrip("."))  # "example.com"
+
+# Практическое применение (очистка пользовательского ввода):
+user_input = "  admin@example.com  \n"
+email = user_input.strip()
+print(email)  # "admin@example.com"
+
+# ============================================
+# 8. ВЫРАВНИВАНИЕ И ДОПОЛНЕНИЕ
+# ============================================
+
+text = "Hello"
+
+# str.ljust(width) — выравнивание влево
+print(text.ljust(10))  # "Hello     "
+print(text.ljust(10, "*"))  # "Hello*****"
+
+# str.rjust(width) — выравнивание вправо
+print(text.rjust(10))  # "     Hello"
+print(text.rjust(10, "-"))  # "-----Hello"
+
+# str.center(width) — выравнивание по центру
+print(text.center(11))  # "   Hello   "
+print(text.center(11, "="))  # "===Hello==="
+
+# str.zfill(width) — заполнение нулями слева
+print("42".zfill(5))  # "00042"
+print("-42".zfill(5))  # "-0042" (знак остаётся слева)
+
+# Практическое применение (форматирование таблицы):
+headers = ["Name", "Age", "City"]
+print(f"{headers[0]:<10} | {headers[1]:>3} | {headers[2]:<10}")
+print("Alice".ljust(10) + "|" + "25".rjust(3) + "|" + "New York".ljust(10))
+
+# ============================================
+# 9. РАЗБИЕНИЕ СТРОК
+# ============================================
+
+# str.split() — разделение по разделителю
+text = "apple,banana,cherry"
+print(text.split(","))  # ['apple', 'banana', 'cherry']
+print("a b c d".split())  # ['a', 'b', 'c', 'd'] (по пробелам)
+print("a,b,c,d".split(",", 2))  # ['a', 'b', 'c,d'] (максимум 2 разбиения)
+
+# str.rsplit() — разделение справа
+print("a,b,c,d".rsplit(",", 2))  # ['a,b', 'c', 'd']
+
+# str.splitlines() — разделение по переносам строк
+text = "Hello\nWorld\r\nPython"
+print(text.splitlines())  # ['Hello', 'World', 'Python']
+print(text.splitlines(True))  # ['Hello\n', 'World\r\n', 'Python'] (с переносами)
+
+# str.partition() — разбиение на 3 части (до, разделитель, после)
+text = "Hello World Python"
+print(text.partition(" "))  # ('Hello', ' ', 'World Python')
+
+# str.rpartition() — разбиение с конца
+text = "Hello World Python World"
+print(text.rpartition(" "))  # ('Hello World Python', ' ', 'World')
+
+# ============================================
+# 10. ОБЪЕДИНЕНИЕ СТРОК
+# ============================================
+
+# str.join() — объединение списка строк
+words = ["Hello", "World", "Python"]
+print(" ".join(words))  # "Hello World Python"
+print(", ".join(words))  # "Hello, World, Python"
+print("".join(["a", "b", "c"]))  # "abc"
+
+# Практическое применение:
+numbers = ["1", "2", "3", "4"]
+print("-".join(numbers))  # "1-2-3-4"
+
+# Ошибка при попытке объединить нестроковые элементы:
+# print(", ".join([1, 2, 3]))  # TypeError
+print(", ".join(map(str, [1, 2, 3])))  # "1, 2, 3"
+
+# ============================================
+# 11. СОВРЕМЕННЫЕ МЕТОДЫ (Python 3.9+)
+# ============================================
+
+# str.removeprefix() — удаление префикса
+text = "HelloWorld"
+print(text.removeprefix("Hello"))  # "World"
+print(text.removeprefix("Hi"))  # "HelloWorld" (не изменяет, если нет)
+
+# str.removesuffix() — удаление суффикса
+filename = "file.txt"
+print(filename.removesuffix(".txt"))  # "file"
+print(filename.removesuffix(".pdf"))  # "file.txt"
+
+# ============================================
+# 12. РАБОТА С UNICODE
+# ============================================
+
+unicode_text = "Hello Привет 你好 🌍"
+
+print(f"Длина строки: {len(unicode_text)}")  # количество символов
+print(f"Только ASCII: {unicode_text.isascii()}")  # False
+
+# Проверка на наличие кириллицы:
+has_cyrillic = any('\u0400' <= char <= '\u04FF' for char in unicode_text)
+print(f"Содержит кириллицу: {has_cyrillic}")  # True
+
+# Проверка на наличие эмодзи:
+has_emoji = any('\U0001F300' <= char <= '\U0001F9FF' for char in unicode_text)
+print(f"Содержит эмодзи: {has_emoji}")  # True
+
+# Кодирование и декодирование:
+encoded = unicode_text.encode('utf-8')
+print(f"Закодировано: {encoded}")
+decoded = encoded.decode('utf-8')
+print(f"Декодировано: {decoded}")
+
+# ============================================
+# 13. СВОДНАЯ ТАБЛИЦА ЧАСТО ИСПОЛЬЗУЕМЫХ МЕТОДОВ
+# ============================================
+
+methods_table = [
+    ("capitalize()", "Первая буква заглавная"),
+    ("title()", "Каждое слово с заглавной"),
+    ("upper()", "Верхний регистр"),
+    ("lower()", "Нижний регистр"),
+    ("strip()", "Удаление пробелов"),
+    ("split()", "Разбиение на список"),
+    ("join()", "Объединение списка"),
+    ("replace()", "Замена подстроки"),
+    ("find()", "Поиск подстроки"),
+    ("startswith()", "Проверка начала"),
+    ("endswith()", "Проверка конца"),
+]
+
+print("\n" + "=" * 50)
+print("ЧАСТО ИСПОЛЬЗУЕМЫЕ МЕТОДЫ СТРОК")
+print("=" * 50)
+for method, description in methods_table:
+    print(f"{method:15} — {description}")
