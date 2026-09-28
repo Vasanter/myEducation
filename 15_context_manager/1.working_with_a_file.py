@@ -20,8 +20,7 @@ import shutil
 
 """
 1. Открытие:   open('filename.txt', 'режим')
-2. Операции:   .read(), .readline(), .readlines() — чтение
-               .write() — запись
+2. Операции:   .read(), .readline(), .readlines() — чтение; .write() — запись
 3. Закрытие:   .close() — или использовать with (рекомендуется)
 """
 
