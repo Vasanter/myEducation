@@ -5,21 +5,6 @@
 ### Где найти:
 `File → Settings → Tools → Terminal → Shell Path`
 
-### Варианты оболочек:
-
-| Оболочка | Путь | Описание |
-|----------|------|-----------|
-| **PowerShell** | `powershell.exe` | Стандартная оболочка Windows |
-| **CMD** | `cmd.exe` | Классическая командная строка |
-| **Git Bash** | `"C:\Program Files\Git\bin\bash.exe"` | Bash от Git (рекомендуется) |
-| **Windows Terminal** | `wt.exe` | Современный терминал Windows |
-| **WSL** | `wsl.exe` | Windows Subsystem for Linux |
-| **PowerShell 7** | `pwsh.exe` | Новая версия PowerShell |
-
-> 💡 **Рекомендация:** Git Bash даёт Unix-подобные команды (ls, grep, find) на Windows
-
----
-
 ## 🔧 НАСТРОЙКА POWERSHELL
 
 ### Проблема с политикой выполнения скриптов:
