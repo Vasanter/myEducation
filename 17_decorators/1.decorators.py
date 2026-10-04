@@ -28,14 +28,15 @@ def timer(func):
 
     Принимает функцию (func) как объект, чтобы «обернуть» её новой логикой.
     """
+
     def wrapper(*args, **kwargs):
         """
         «Матрёшка»: *args и **kwargs позволяют обёртке принимать
         любые аргументы, которые могут быть у целевой функции.
         """
-        time_start = time.time()      # время начала
+        time_start = time.time()  # время начала
         result = func(*args, **kwargs)  # выполняем функцию
-        time_end = time.time()        # время окончания
+        time_end = time.time()  # время окончания
 
         elapsed = time_end - time_start
         print(f"⏱️ {func.__name__}: {elapsed:.8f} сек")
@@ -54,15 +55,8 @@ def func_two():
     my_list = [i for i in range(1, 1_000_000)]
 
 
-func_one()
-func_two()
-# ⏱️ func_one: 0.04512382 сек
-# ⏱️ func_two: 0.04489712 сек
-
-# ⚠️ В исходном коде было два бага:
-# 1. func() вызывалась без аргументов — упало бы на функциях с параметрами
-# 2. wrapper возвращал строку с временем, а не результат функции
-
+func_one()  # ⏱️ func_one: 0.04512382 сек
+func_two()  # ⏱️ func_two: 0.04489712 сек
 
 # ============================================
 # 2. КАК ЭТО РАБОТАЕТ (ПОШАГОВО)
@@ -104,6 +98,7 @@ def my_decorator(func):
         print("Something is happening before the function is called.")
         func()
         print("Something is happening after the function is called.")
+
     return wrapper
 
 
@@ -113,6 +108,8 @@ def say_hello():
 
 # Способ 1: явный вызов (без @)
 my_decorator(say_hello)()
+
+
 # Something is happening before the function is called.
 # Hello!
 # Something is happening after the function is called.
@@ -125,6 +122,8 @@ def say_hello():
 
 
 say_hello()
+
+
 # Something is happening before the function is called.
 # Hello!
 # Something is happening after the function is called.
@@ -139,6 +138,7 @@ def my_decorator(func):
         print("Something is happening before the function is called.")
         func(*args, **kwargs)
         print("Something is happening after the function is called.")
+
     return wrapper
 
 
@@ -148,6 +148,8 @@ def say_hello(*, name: str):
 
 
 say_hello(name="Sasha")
+
+
 # Something is happening before the function is called.
 # Hello, Sasha!
 # Something is happening after the function is called.
@@ -163,6 +165,7 @@ def my_decorator(func):
         result = func(*args, **kwargs)  # сохраняем результат
         print("Something is happening after the function is called.")
         return result  # возвращаем результат
+
     return wrapper
 
 
@@ -174,6 +177,8 @@ def add_numbers(*, a: int, b: int) -> int:
 
 result = add_numbers(a=10, b=5)
 print(f"The result is {result}")
+
+
 # Something is happening before the function is called.
 # Adding numbers...
 # Something is happening after the function is called.
@@ -189,6 +194,7 @@ print(f"The result is {result}")
 def bad_decorator(func):
     def wrapper(*args, **kwargs):
         return func(*args, **kwargs)
+
     return wrapper
 
 
@@ -198,8 +204,8 @@ def greet(name):
     return f"Hello, {name}"
 
 
-print(greet.__name__)   # wrapper  ← потеряли имя!
-print(greet.__doc__)    # None     ← потеряли docstring!
+print(greet.__name__)  # wrapper  ← потеряли имя!
+print(greet.__doc__)  # None     ← потеряли docstring!
 
 
 # ✅ Решение: использовать @wraps
@@ -208,6 +214,7 @@ def good_decorator(func):
     @wraps(func)  # сохраняет __name__, __doc__ и др.
     def wrapper(*args, **kwargs):
         return func(*args, **kwargs)
+
     return wrapper
 
 
@@ -217,8 +224,8 @@ def greet(name):
     return f"Hello, {name}"
 
 
-print(greet.__name__)   # greet  ✅
-print(greet.__doc__)    # Приветствие пользователя  ✅
+print(greet.__name__)  # greet  ✅
+print(greet.__doc__)  # Приветствие пользователя  ✅
 
 
 # ============================================
@@ -234,6 +241,7 @@ def log_calls(func):
         result = func(*args, **kwargs)
         print(f"   → {result}")
         return result
+
     return wrapper
 
 
@@ -243,6 +251,8 @@ def multiply(a, b):
 
 
 multiply(3, 5)
+
+
 # 📞 Вызов: multiply
 #    args=(3, 5), kwargs={}
 #    → 15
@@ -257,6 +267,7 @@ def memoize(func):
         if args not in cache:
             cache[args] = func(*args)
         return cache[args]
+
     return wrapper
 
 
@@ -277,6 +288,7 @@ def require_admin(func):
         if user.get("role") != "admin":
             raise PermissionError("Доступ запрещён: нужны права администратора")
         return func(user, *args, **kwargs)
+
     return wrapper
 
 
@@ -289,6 +301,8 @@ admin = {"name": "Alice", "role": "admin"}
 user = {"name": "Bob", "role": "user"}
 
 print(delete_user(admin, 42))  # Пользователь 42 удалён
+
+
 # print(delete_user(user, 42))  # PermissionError
 
 
@@ -305,7 +319,9 @@ def retry(max_attempts=3, delay=1):
                     if attempt == max_attempts:
                         raise
                     time.sleep(delay)
+
         return wrapper
+
     return decorator
 
 
@@ -328,6 +344,7 @@ def validate_positive(func):
             if isinstance(arg, (int, float)) and arg < 0:
                 raise ValueError(f"Аргумент {arg} должен быть положительным")
         return func(*args, **kwargs)
+
     return wrapper
 
 
@@ -337,6 +354,8 @@ def sqrt(x):
 
 
 print(sqrt(16))  # 4.0
+
+
 # print(sqrt(-4))  # ValueError
 
 
@@ -349,7 +368,8 @@ def benchmark(func):
             return func(*args, **kwargs)
         finally:
             elapsed = time.perf_counter() - start
-            print(f"⏱️ {func.__name__}: {elapsed*1000:.3f} мс")
+            print(f"⏱️ {func.__name__}: {elapsed * 1000:.3f} мс")
+
     return wrapper
 
 
@@ -370,6 +390,7 @@ def bold(func):
     @wraps(func)
     def wrapper(*args, **kwargs):
         return f"<b>{func(*args, **kwargs)}</b>"
+
     return wrapper
 
 
@@ -377,6 +398,7 @@ def italic(func):
     @wraps(func)
     def wrapper(*args, **kwargs):
         return f"<i>{func(*args, **kwargs)}</i>"
+
     return wrapper
 
 
@@ -446,8 +468,9 @@ print(greet("Alice"))  # <b><i>Hello, Alice</i></b>
 
 # ❌ Ошибка 1: Забыли *args, **kwargs
 def bad_timer(func):
-    def wrapper():        # не примет аргументы!
+    def wrapper():  # не примет аргументы!
         func()
+
     return wrapper
 
 
@@ -464,6 +487,7 @@ def good_timer(func):
     @wraps(func)
     def wrapper(*args, **kwargs):
         return func(*args, **kwargs)
+
     return wrapper
 
 
@@ -472,6 +496,7 @@ def bad_logger(func):
     def wrapper(*args, **kwargs):
         print("Calling...")
         func(*args, **kwargs)  # результат потерян!
+
     return wrapper
 
 
@@ -482,6 +507,7 @@ def good_logger(func):
         print("Calling...")
         result = func(*args, **kwargs)
         return result
+
     return wrapper
 
 
@@ -489,6 +515,7 @@ def good_logger(func):
 def bad(func):
     def wrapper(*args, **kwargs):
         return func(*args, **kwargs)
+
     return wrapper
 
 
@@ -498,8 +525,9 @@ def greet(name):
     return f"Hi, {name}"
 
 
-print(greet.__name__)   # wrapper (а должно быть greet)
-print(greet.__doc__)    # None
+print(greet.__name__)  # wrapper (а должно быть greet)
+print(greet.__doc__)  # None
+
 
 # ✅ Решение: использовать @wraps
 
@@ -519,10 +547,12 @@ print(greet.__doc__)    # None
 def greet1():
     return "Hi"
 
+
 @italic
 @bold
 def greet2():
     return "Hi"
+
 
 print(greet1())  # <b><i>Hi</i></b>
 print(greet2())  # <i><b>Hi</b></i>

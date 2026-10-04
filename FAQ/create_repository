@@ -1,0 +1,100 @@
+? Инструкция по созданию репозитория на GitHub
+1. Создание репозитория
+Заходим на https://github.com/ и авторизуемся.
+Нажимаем на значок «+» в правом верхнем углу ? выбираем New repository.
+Заполняем поле Repository name* (название проекта латиницей, без пробелов).
+(Опционально) Добавляем описание в поле Description.
+Выбираем видимость: Public (публичный) или Private (приватный).
+Не ставим галочки на «Add a README file», «Add .gitignore», «Choose a license» — мы создадим их вручную через консоль.
+Нажимаем Create repository.
+
+
+2. Инициализация репозитория локально
+Открываем терминал (Git Bash / PowerShell / Terminal) в папке будущего проекта и выполняем команды по порядку:
+# Создаём файл README.md с названием проекта
+echo "# Название проекта" >> README.md
+
+# Инициализируем локальный git-репозиторий
+git init
+
+# Добавляем README в индекс
+git add README.md
+
+# Делаем первый коммит
+git commit -m "first commit"
+
+# Переименовываем основную ветку в main
+git branch -M main
+
+# Привязываем удалённый репозиторий (замените Login и RepositoryName)
+git remote add origin https://github.com/Login/RepositoryName.git
+
+# Отправляем изменения на GitHub
+git push -u origin main
+
+?? Важно: символ # перед названием в README.md обязателен — это делает строку заголовком в Markdown.
+? Если при git push запрашивает логин/пароль — в качестве пароля используйте Personal Access Token (см. шаг 4),
+обычный пароль GitHub больше не принимает.
+
+
+3. Создание ветки gh-pages
+Ветка gh-pages используется для публикации статических сайтов через GitHub Pages.
+
+Переходим по адресу:
+https://github.com/Login/RepositoryName/branches
+Нажимаем New branch.
+Указываем имя ветки: gh-pages.
+Нажимаем Create new branch.
+
+? Альтернатива через консоль:
+git checkout -b gh-pages
+git push -u origin gh-pages
+
+
+4. Создание Personal Access Token (PAT)
+Токен нужен для аутентификации при push и для работы GitHub Actions.
+
+Профиль ? Settings.
+В левом меню внизу: Developer settings.
+Personal access tokens ? Tokens (classic).
+Generate new token ? Generate new token (classic).
+
+Заполняем:
+Note — понятное название токена (например, my-project-token).
+Expiration — срок действия (30 / 60 / 90 дней или Custom).
+
+Select scopes — отмечаем чекбоксы:
+? repo (полный доступ к репозиториям)
+? workflow (для GitHub Actions)
+? write:packages, delete:packages (если планируете работать с пакетами)
+Нажимаем Generate token.
+
+Скопируйте токен сразу — после закрытия страницы он больше не отобразится. Сохраните его в надёжном месте.
+
+
+5. Добавление токена в Secrets репозитория
+Секреты используются в GitHub Actions, чтобы не хранить токен в открытом виде в коде.
+
+Переходим в репозиторий ? Settings.
+В левом меню: Secrets and variables ? Actions.
+Нажимаем New repository secret.
+
+Заполняем:
+Name* — имя секрета (например, GH_TOKEN или ACCESS_TOKEN).
+Secret — вставляем скопированный ранее токен.
+Нажимаем Add secret.
+
+?? Важно: имя секрета должно совпадать с тем, что вы используете в workflow-файле, например:
+env:
+  GH_TOKEN: ${{ secrets.GH_TOKEN }}
+
+
+6. (Дополнительно) Включение GitHub Pages
+Чтобы сайт стал доступен по адресу https://Login.github.io/RepositoryName/:
+
+Settings ? Pages.
+В разделе Source выбираем:
+Deploy from a branch ? ветка gh-pages, папка / (root).
+Нажимаем Save.
+
+Через 1–2 минуты сайт будет доступен по указанному адресу.
