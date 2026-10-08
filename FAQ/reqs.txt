@@ -1,0 +1,111 @@
+# 📦 УПРАВЛЕНИЕ ЗАВИСИМОСТЯМИ В PYTHON
+
+## 🐷 PIGAR — АВТОМАТИЧЕСКАЯ ГЕНЕРАЦИЯ REQUIREMENTS.TXT
+
+**pigar** — утилита, которая автоматически анализирует проект и создаёт
+файл `requirements.txt` на основе реально используемых библиотек.
+
+### Установка pigar:
+```bash
+pip install pigar
+
+
+Основные команды:
+pigar generate    # Генерирует requirements.txt в директории проекта
+pigar generate --with-referenced-comments   # Показывает, где используется каждый пакет
+pigar check -f requirements.txt   # Сравнивает локальные версии с актуальными на PyPI
+
+
+Примеры использования:
+# Базовая генерация requirements.txt
+pigar generate
+
+# С комментариями о том, где используется пакет
+pigar generate --with-referenced-comments
+
+# Проверка актуальности версий
+pigar check -f requirements.txt
+
+# Указать конкретный путь к проекту
+pigar generate -p /path/to/project
+
+
+📥 УСТАНОВКА ЗАВИСИМОСТЕЙ ДЛЯ ТЕСТИРОВАНИЯ
+Основные библиотеки:
+Библиотека	Назначение
+selenium	Автоматизация браузера
+pytest	Фреймворк для тестирования
+webdriver-manager	Автоматическое управление драйверами браузеров
+allure-pytest	Формирование отчётов о тестировании
+requests	HTTP-запросы
+python-dotenv	Работа с переменными окружения из .env
+
+
+Установка всех зависимостей:
+pip install selenium pytest webdriver-manager allure-pytest requests python-dotenv
+
+Установка с сохранением в requirements.txt:
+pip install selenium pytest webdriver-manager allure-pytest requests python-dotenv && pip freeze > requirements.txt
+
+Windows (PowerShell):
+pip install selenium pytest webdriver-manager allure-pytest requests python-dotenv; pip freeze > requirements.txt
+
+Linux/macOS:
+pip install selenium pytest webdriver-manager allure-pytest requests python-dotenv && pip freeze > requirements.txt
+
+Установка из готового requirements.txt:
+pip install -r requirements.txt
+
+
+🔄 ПОЛНЫЙ ЦИКЛ РАБОТЫ С ЗАВИСИМОСТЯМИ
+# 1. Создание и активация виртуального окружения
+python -m venv venv
+venv\Scripts\activate  # Windows
+source venv/bin/activate  # macOS/Linux
+
+# 2. Установка библиотек для тестирования
+pip install selenium pytest webdriver-manager allure-pytest requests python-dotenv & pip freeze > requirements.txt
+
+# 3. Сохранение зависимостей
+pip freeze > requirements.txt
+
+# 4. Проверка актуальности версий через pigar
+pip install pigar
+pigar check -f requirements.txt
+
+# 5. Восстановление окружения на другой машине
+pip install -r requirements.txt
+
+
+💡 ПОЛЕЗНЫЕ КОМАНДЫ PIP
+Команда	Описание
+pip list	Список установленных пакетов
+pip list --outdated	Список устаревших пакетов
+pip show <package>	Информация о пакете
+pip install -U <package>	Обновление пакета
+pip uninstall <package>	Удаление пакета
+pip freeze > requirements.txt	Сохранение зависимостей
+pip install -r requirements.txt	Установка из файла
+pip check	Проверка конфликтов зависимостей
+pip cache purge	Очистка кэша pip
+
+
+⚠️ РАСПРОСТРАНЁННЫЕ ПРОБЛЕМЫ
+1. Конфликт версий между библиотеками
+# Проверить конфликты
+pip check
+
+# Обновить все пакеты
+pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1 | xargs -n1 pip install -U
+
+2. Медленная установка
+# Использовать зеркало PyPI (для России)
+pip install -i https://mirror.yandex.ru/pypi/simple/ <package>
+
+3. Ошибки SSL при установке
+pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org <package>
+
+4. Большой размер requirements.txt
+# Установить только прямые зависимости
+pip install pipreqs
+pipreqs /path/to/project --force
