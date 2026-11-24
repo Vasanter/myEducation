@@ -12,63 +12,63 @@
 text = "hello world python"
 
 # str.capitalize() — первая буква заглавная, остальные строчные
-print(text.capitalize())  # Hello world python
+# print(text.capitalize())  # Hello world python
 
 # str.title() — каждое слово с заглавной буквы
-print(text.title())  # Hello World Python
+# print(text.title())  # Hello World Python
 
 # str.upper() — все буквы в верхнем регистре
-print(text.upper())  # HELLO WORLD PYTHON
+# print(text.upper())  # HELLO WORLD PYTHON
 
 # str.lower() — все буквы в нижнем регистре
-print(text.upper().lower())  # hello world python
+# print(text.upper().lower())  # hello world python
 
 # str.swapcase() — инвертирование регистра
-text_mixed = "Hello World"
-print(text_mixed.swapcase())  # hELLO wORLD
+# text_mixed = "Hello World"
+# print(text_mixed.swapcase())  # hELLO wORLD
 
 # Цепочка методов:
-print(text.title().swapcase())  # hELLO wORLD pYTHON
+# print(text.title().swapcase())  # hELLO wORLD pYTHON
 
 # ============================================
 # 2. МЕТОДЫ ПРОВЕРКИ СОДЕРЖИМОГО
 # ============================================
 
 # str.isalpha() — только буквы (без пробелов и цифр)
-print("Hello".isalpha())  # True
-print("Hello123".isalpha())  # False
-print("Hello World".isalpha())  # False (пробел)
+# print("Hello".isalpha())  # True
+# print("Hello123".isalpha())  # False
+# print("Hello World".isalpha())  # False (пробел)
 
 # str.isdigit() — только цифры
-print("123".isdigit())  # True
-print("123.45".isdigit())  # False (точка)
+# print("123".isdigit())  # True
+# print("123.45".isdigit())  # False (точка)
 
 # str.isalnum() — только буквы и цифры (без пробелов и спецсимволов)
-print("Hello123".isalnum())  # True
-print("Hello 123".isalnum())  # False (пробел)
+# print("Hello123".isalnum())  # True
+# print("Hello 123".isalnum())  # False (пробел)
 
 # str.isdecimal() — только десятичные цифры
-print("123".isdecimal())  # True
-print("½".isdecimal())  # False (дробь)
+# print("123".isdecimal())  # True
+# print("½".isdecimal())  # False (дробь)
 
 # str.isnumeric() — числовые символы (включая дроби, римские цифры)
-print("123".isnumeric())  # True
-print("½".isnumeric())  # True
-print("Ⅳ".isnumeric())  # True (римская цифра)
+# print("123".isnumeric())  # True
+# print("½".isnumeric())  # True
+# print("Ⅳ".isnumeric())  # True (римская цифра)
 
 # str.islower() / str.isupper() — проверка регистра
-print("hello".islower())  # True
-print("HELLO".isupper())  # True
-print("Hello".islower())  # False
+# print("hello".islower())  # True
+# print("HELLO".isupper())  # True
+# print("Hello".islower())  # False
 
 # str.isspace() — только пробельные символы
-print("   ".isspace())  # True
-print("\t\n".isspace())  # True
-print(" a ".isspace())  # False
+# print("   ".isspace())  # True
+# print("\t\n".isspace())  # True
+# print(" a ".isspace())  # False
 
 # str.istitle() — каждое слово с заглавной буквы
-print("Hello World".istitle())  # True
-print("Hello world".istitle())  # False
+# print("Hello World".istitle())  # True
+# print("Hello world".istitle())  # False
 
 # ============================================
 # 3. ПРОВЕРКА НАЧАЛА И КОНЦА СТРОКИ
@@ -77,59 +77,59 @@ print("Hello world".istitle())  # False
 text = "Hello World"
 
 # str.startswith() — начинается ли строка с префикса
-print(text.startswith("Hello"))  # True
-print(text.startswith("He"))  # True
-print(text.startswith(("Hi", "He")))  # True (кортеж вариантов)
-print(text.startswith("World", 6))  # True (начиная с позиции 6)
+# print(text.startswith("Hello"))  # True
+# print(text.startswith("He"))  # True
+# print(text.startswith(("Hi", "He")))  # True (кортеж вариантов)
+# print(text.startswith("World", 6))  # True (начиная с позиции 6)
 
 # str.endswith() — заканчивается ли строка суффиксом
-filename = "document.pdf"
-print(filename.endswith(".pdf"))  # True
-print(filename.endswith((".txt", ".pdf")))  # True (кортеж)
-print(filename.endswith("pdf", 0, 12))  # True (в срезе)
+# filename = "document.pdf"
+# print(filename.endswith(".pdf"))  # True
+# print(filename.endswith((".txt", ".pdf")))  # True (кортеж)
+# print(filename.endswith("pdf", 0, 12))  # True (в срезе)
 
 
 # Практическое применение:
-def is_image_file(filename):
-    """Проверка, является ли файл изображением"""
-    return filename.lower().endswith(('.jpg', '.png', '.gif', '.bmp'))
+# def is_image_file(filename):
+#     """Проверка, является ли файл изображением"""
+#     return filename.lower().endswith(('.jpg', '.png', '.gif', '.bmp'))
 
 
-print(is_image_file("photo.JPG"))  # True
+# print(is_image_file("photo.JPG"))  # True
 
 # ============================================
 # 4. ПРОВЕРКА ТИПОВ СИМВОЛОВ
 # ============================================
 
 # str.isascii() — только ASCII символы
-print("Hello".isascii())  # True
-print("Привет".isascii())  # False
+# print("Hello".isascii())  # True
+# print("Привет".isascii())  # False
 
 # str.isprintable() — только печатные символы
-print("Hello".isprintable())  # True
-print("Hello\n".isprintable())  # False (перенос строки)
+# print("Hello".isprintable())  # True
+# print("Hello\n".isprintable())  # False (перенос строки)
 
 # str.isidentifier() — валидный идентификатор Python
-print("variable".isidentifier())  # True
-print("var_name".isidentifier())  # True
-print("123var".isidentifier())  # False (начинается с цифры)
-print("var-name".isidentifier())  # False (дефис)
+# print("variable".isidentifier())  # True
+# print("var_name".isidentifier())  # True
+# print("123var".isidentifier())  # False (начинается с цифры)
+# print("var-name".isidentifier())  # False (дефис)
 
 # ============================================
 # 5. МЕТОДЫ ПОИСКА
 # ============================================
 
-text = "Hello World World"
+# text = "Hello World World"
 
 # str.find() — индекс первого вхождения (-1, если не найдено)
-print(text.find("World"))  # 6
-print(text.find("world"))  # -1 (регистр важен)
-print(text.find("World", 7))  # 12 (поиск с позиции 7)
-print(text.find("o", 5, 10))  # 7 (поиск в диапазоне)
+# print(text.find("World"))  # 6
+# print(text.find("world"))  # -1 (регистр важен)
+# print(text.find("World", 7))  # 12 (поиск с позиции 7)
+# print(text.find("o", 5, 10))  # 7 (поиск в диапазоне)
 
 # str.rfind() — индекс последнего вхождения
-print(text.rfind("World"))  # 12
-print(text.rfind("o"))  # 15
+# print(text.rfind("World"))  # 12
+# print(text.rfind("o"))  # 15
 
 # str.index() — как find(), но вызывает ValueError, если не найдено
 try:

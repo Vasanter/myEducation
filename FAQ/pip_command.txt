@@ -9,12 +9,10 @@
 ```bash
 pip install pigar
 
-
 Основные команды:
 pigar generate    # Генерирует requirements.txt в директории проекта
 pigar generate --with-referenced-comments   # Показывает, где используется каждый пакет
 pigar check -f requirements.txt   # Сравнивает локальные версии с актуальными на PyPI
-
 
 Примеры использования:
 # Базовая генерация requirements.txt
