@@ -18,35 +18,35 @@
 my_age = 25  # имя: my_age, значение: 25, тип: int (целое число)
 
 # Определение типа переменной:
-myName = 'Vladimir'
-print(type(myName))  # <class 'str'> — строковый тип
+# myName = 'Vladimir'
+# print(type(myName))  # <class 'str'> — строковый тип
 
 # Другие примеры типов:
-age = 30
-print(type(age))  # <class 'int'> — целое число
-
-height = 1.75
-print(type(height))  # <class 'float'> — число с плавающей точкой
-
-is_student = True
-print(type(is_student))  # <class 'bool'> — логический тип
-
-# Идентификатор объекта в памяти:
-print(id(myName))  # уникальный номер объекта в памяти
+# age = 30
+# print(type(age))  # <class 'int'> — целое число
+#
+# height = 1.75
+# print(type(height))  # <class 'float'> — число с плавающей точкой
+#
+# is_student = True
+# print(type(is_student))  # <class 'bool'> — логический тип
+#
+# # Идентификатор объекта в памяти:
+# print(id(is_student))  # уникальный номер объекта в памяти
 
 # ============================================
 # 2. ДИНАМИЧЕСКАЯ ТИПИЗАЦИЯ
 # ============================================
 
 # Python — язык с динамической типизацией:
-x = 10  # x — целое число
-print(type(x))  # <class 'int'>
-
-x = "Привет"  # теперь x — строка
-print(type(x))  # <class 'str'>
-
-x = [1, 2, 3]  # теперь x — список
-print(type(x))  # <class 'list'>
+# x = 10  # x — целое число
+# print(type(x))  # <class 'int'>
+#
+# x = "Привет"  # теперь x — строка
+# print(type(x))  # <class 'str'>
+#
+# x = [1, 2, 3]  # теперь x — список
+# print(type(x))  # <class 'list'>
 
 # Переменная может менять не только значение, но и тип!
 
@@ -56,22 +56,22 @@ print(type(x))  # <class 'list'>
 # ============================================
 
 # Присваивание нескольких переменных одновременно:
-a, b, c = 1, 2, 3
-print(a, b, c)  # 1 2 3
-
-# Обмен значениями без временной переменной:
-a, b = b, a
-print(a, b)  # 2 1
-
-# Распаковка последовательности:
-numbers = [10, 20, 30]
-first, second, third = numbers
-print(first, second, third)  # 10 20 30
-
-# Звёздочка для распаковки:
-first, *rest = [1, 2, 3, 4, 5]
-print(first)  # 1
-print(rest)  # [2, 3, 4, 5]
+# a, b, c = 1, 2, 3
+# print(a, b, c)  # 1 2 3
+#
+# # Обмен значениями без временной переменной:
+# a, b = b, a
+# print(a, b)  # 2 1
+#
+# # Распаковка последовательности:
+# numbers = [10, 20, 30]
+# first, second, third = numbers
+# print(first, second, third)  # 10 20 30
+#
+# # Звёздочка для распаковки:
+# first, *rest = [1, 2, 3, 4, 5]
+# print(first)  # 1
+# print(rest)  # [2, 3, 4, 5]
 
 # ============================================
 # 4. СТИЛИ ИМЕНОВАНИЯ ПЕРЕМЕННЫХ
@@ -136,13 +136,13 @@ myVariable = 4  # допустимо, но не рекомендуется (PEP 
 # Проверить, является ли строка допустимым именем:
 import keyword
 
-print(keyword.iskeyword("class"))  # True — ключевое слово
-print(keyword.iskeyword("my_var"))  # False — можно использовать
+# print(keyword.iskeyword("class"))  # True — ключевое слово
+# print(keyword.iskeyword("my_var"))  # False — можно использовать
 
 # Проверить, является ли строка допустимым идентификатором:
-print("my_var".isidentifier())  # True
-print("1var".isidentifier())  # False
-print("my-var".isidentifier())  # False
+# print("my_var".isidentifier())  # True
+# print("1var".isidentifier())  # False
+# print("my-var".isidentifier())  # False
 
 # ============================================
 # 7. ОШИБКИ ПРИ ИСПОЛЬЗОВАНИИ КЛЮЧЕВЫХ СЛОВ
@@ -171,21 +171,21 @@ print("my-var".isidentifier())  # False
 # ============================================
 
 # Проверка существования переменной:
-if 'my_variable' in locals():
-    print("Переменная существует")
+# if 'my_variable' in locals():
+#     print("Переменная существует")
 
 # Удаление переменной:
-temp_var = 100
-del temp_var
-# print(temp_var)  # NameError: name 'temp_var' is not defined
-
-# Получение всех локальных переменных:
-x = 10
-y = "hello"
-print(locals())  # словарь всех локальных переменных
-
-# Получение всех глобальных переменных:
-print(globals())  # словарь всех глобальных переменных
+# temp_var = 100
+# del temp_var
+# # print(temp_var)  # NameError: name 'temp_var' is not defined
+#
+# # Получение всех локальных переменных:
+# x = 10
+# y = "hello"
+# print(locals())  # словарь всех локальных переменных
+#
+# # Получение всех глобальных переменных:
+# print(globals())  # словарь всех глобальных переменных
 
 # ============================================
 # 9. ПРАКТИЧЕСКИЕ СОВЕТЫ
@@ -203,8 +203,8 @@ months_in_year = 12
 total_months = age * months_in_year
 
 # 2. Избегайте однобуквенных имён (кроме циклов):
-for i in range(10):  # i — ок для цикла
-    print(i)
+# for i in range(10):  # i — ок для цикла
+#     print(i)
 
 # 3. Не используйте слишком длинные имена:
 # this_is_a_very_long_variable_name_that_is_hard_to_read = 1  # слишком длинно
